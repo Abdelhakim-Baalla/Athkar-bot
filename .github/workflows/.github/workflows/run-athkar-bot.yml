@@ -1,0 +1,30 @@
+name: Run Athkar Bot 24/7
+
+on:
+  schedule:
+    # Cron job to run the bot every hour
+    - cron: "0 * * * *"
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x" # Replace with a specific Python version if needed
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run the bot
+      run: |
+        echo "Starting the bot..."
+        timeout 60m python your_bot_script.py
