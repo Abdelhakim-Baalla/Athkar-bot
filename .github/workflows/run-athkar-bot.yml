@@ -17,14 +17,22 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.x" # Replace with a specific Python version if needed
+        python-version: "3.10"
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        # Create requirements.txt if it doesn't exist
+        if [ ! -f requirements.txt ]; then
+          echo "discord.py>=2.0.0" > requirements.txt
+          echo "python-dotenv" >> requirements.txt
+          echo "flask" >> requirements.txt
+        fi
         pip install -r requirements.txt
 
     - name: Run the bot
+      env:
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
       run: |
         echo "Starting the bot..."
-        timeout 60m python your_bot_script.py
+        timeout 55m python main.py
