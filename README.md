@@ -18,7 +18,7 @@
 
 | Command                  | Description                                |
 |-------------------------|------------------------------------------|
-| `!athkar`               | Shows random dhikr + enables auto-reminders |
+| `!athkar or /athkar`               | Shows random dhikr + enables auto-reminders |
 | `!athkar morning`       | Displays complete morning athkar          |
 | `!athkar evening`       | Displays complete evening athkar          |
 | `!athkar stop`          | Stops automatic reminders                |
