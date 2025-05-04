@@ -1,10 +1,8 @@
 # Athkar Bot - Islamic Reminders for Discord  
 
 <div align="center">
-  <img src="https://athkar-bot.vercel.app/og-image.png" alt="Athkar Bot Banner" width="600"/>
-  
   [![Discord](https://img.shields.io/badge/Add_to_Discord-7289DA?style=for-the-badge&logo=discord)](https://discord.com/oauth2/authorize?client_id=1368232333349486724&scope=bot&permissions=67584)
-  [![GitHub](https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github)](https://github.com/Abdelhakim-Baalla/athkar-discord-bot)
+  [![GitHub](https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github)](https://github.com/Abdelhakim-Baalla/Athkar-bot)
   [![Support](https://img.shields.io/badge/Support_Server-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/uG7MxUvw4w)
 </div>
 
@@ -47,29 +45,17 @@ To host your own instance of Athkar Bot:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Abdelhakim-Baalla/athkar-discord-bot.git
-cd athkar-discord-bot
+git clone https://github.com/Abdelhakim-Baalla/Athkar-bot.git
+cd Athkar-bot
 
-# 2. Install dependencies
-npm install
-
-# 3. Configure .env file
-BOT_TOKEN=your_discord_bot_token_here
-
-# 4. Run the bot
-npm start
-
-### Requirements  
-- Node.js 18.x or later  
-- npm/yarn  
 ```
 ---
 
 ## 🤝 Contributing  
 We welcome contributions! You can:  
-🔹 **Report issues** → [Open an Issue](https://github.com/Abdelhakim-Baalla/athkar-discord-bot/issues)  
-🔹 **Suggest improvements** → [Start Discussion](https://github.com/Abdelhakim-Baalla/athkar-discord-bot/discussions)  
-🔹 **Make changes** → [Create Pull Request](https://github.com/Abdelhakim-Baalla/athkar-discord-bot/pulls)  
+🔹 **Report issues** → [Open an Issue](https://github.com/Abdelhakim-Baalla/Athkar-bot/issues)  
+🔹 **Suggest improvements** → [Start Discussion](https://github.com/Abdelhakim-Baalla/Athkar-bot/discussions)  
+🔹 **Make changes** → [Create Pull Request](https://github.com/Abdelhakim-Baalla/Athkar-bot/pulls)  
 
 ---
 
