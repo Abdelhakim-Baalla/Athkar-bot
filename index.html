@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athkar Bot - Islamic Remembrances Discord Bot</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-moon text-2xl"></i>
+                    <span class="font-bold text-xl">Athkar Bot</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="hover:text-green-200 font-medium">Home</a>
+                    <a href="about.html" class="hover:text-green-200 font-medium">About</a>
+                    <a href="terms.html" class="hover:text-green-200 font-medium">Terms of Service</a>
+                    <a href="privacy.html" class="hover:text-green-200 font-medium">Privacy Policy</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-green-700">Home</a>
+            <a href="about.html" class="block py-2 px-4 text-sm hover:bg-green-700">About</a>
+            <a href="terms.html" class="block py-2 px-4 text-sm hover:bg-green-700">Terms of Service</a>
+            <a href="privacy.html" class="block py-2 px-4 text-sm hover:bg-green-700">Privacy Policy</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-green-500 text-white">
+        <div class="container mx-auto px-4 py-16 md:py-24 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Athkar Bot for Discord</h1>
+            <p class="text-xl md:text-2xl mb-8">Daily Islamic remembrances delivered to your Discord server</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
+                   class="bg-white text-green-600 hover:bg-green-100 font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+                   Add to Discord
+                </a>
+                <a href="about.html" 
+                   class="bg-green-600 text-white hover:bg-green-700 font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+                   Learn More
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-12 md:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Bot Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-green-500 text-3xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Daily Athkar</h3>
+                    <p class="text-gray-600">Automated morning and evening Athkar sent at the appropriate times each day.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-green-500 text-3xl mb-4">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">On-Demand Reminders</h3>
+                    <p class="text-gray-600">Use simple commands to get random Athkar whenever you need spiritual reminders.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-green-500 text-3xl mb-4">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Easy Setup</h3>
+                    <p class="text-gray-600">Simple to add to your server with no complex configuration required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-12 md:py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-2">Add to Server</h3>
+                    <p class="text-gray-600">Click the "Add to Discord" button and select your server.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-2">Set Channel</h3>
+                    <p class="text-gray-600">The bot will automatically use the channel where commands are first used.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-2">Enjoy Daily Athkar</h3>
+                    <p class="text-gray-600">Receive daily morning and evening athkar, or use commands like !athkar anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 md:py-20 bg-green-500 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to add Athkar to your server?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Add the Athkar Bot to your Discord server today and enrich your community with daily Islamic remembrances.</p>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
+               class="bg-white text-green-600 hover:bg-green-100 font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 inline-block">
+               Add to Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-moon text-2xl"></i>
+                        <span class="font-bold text-xl">Athkar Bot</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">© 2025 Athkar Bot. All rights reserved.</p>
+                </div>
+                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+                    <a href="about.html" class="hover:text-green-400">About</a>
+                    <a href="terms.html" class="hover:text-green-400">Terms of Service</a>
+                    <a href="privacy.html" class="hover:text-green-400">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
