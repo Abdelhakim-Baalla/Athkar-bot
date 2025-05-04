@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوت الأذكار - تذكير يومي بالذكر على ديسكورد</title>
+    <title>بوت الأذكار - ذكر منعش ليومك على ديسكورد</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lateef:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="placeholder_favicon.png" type="image/png"> 
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/atkhkar-bot-logo.jpg" type="image/png">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // New Palette: Deep Teal, Night Sky, Gold, Off-White
-                        primary: { // Teal/Turquoise
-                            DEFAULT: '#14b8a6', // Teal 500
+                        // Rich Islamic-inspired color palette
+                        primary: { // Deep Teal
+                            DEFAULT: '#0d9488', // Teal 600
                             '50': '#f0fdfa',
                             '100': '#ccfbf1',
                             '200': '#99f6e4',
@@ -28,59 +28,73 @@
                             '800': '#115e59',
                             '900': '#134e4a'
                         },
-                        secondary: { // Dark Slate Blue / Night Sky
-                            DEFAULT: '#1e293b', // Slate 700
-                            '50': '#f8fafc',
-                            '100': '#f1f5f9',
-                            '200': '#e2e8f0',
-                            '300': '#cbd5e1',
-                            '400': '#94a3b8',
-                            '500': '#64748b',
-                            '600': '#475569',
-                            '700': '#334155',
-                            '800': '#1e293b',
-                            '900': '#0f172a'
+                        secondary: { // Royal Purple
+                            DEFAULT: '#8b5cf6', // Violet 500
+                            '50': '#f5f3ff',
+                            '100': '#ede9fe',
+                            '200': '#ddd6fe',
+                            '300': '#c4b5fd',
+                            '400': '#a78bfa',
+                            '500': '#8b5cf6',
+                            '600': '#7c3aed',
+                            '700': '#6d28d9',
+                            '800': '#5b21b6',
+                            '900': '#4c1d95'
                         },
-                        accent: { // Gold/Brass
-                            DEFAULT: '#eab308', // Amber 500
+                        accent: { // Gold
+                            DEFAULT: '#f59e0b', // Amber 500
                             '50': '#fffbeb',
                             '100': '#fef3c7',
                             '200': '#fde68a',
                             '300': '#fcd34d',
                             '400': '#fbbf24',
-                            '500': '#f59e0b', // Amber 600 (adjusted for more gold)
-                            '600': '#d97706', // Amber 700
+                            '500': '#f59e0b',
+                            '600': '#d97706',
                             '700': '#b45309',
                             '800': '#92400e',
                             '900': '#78350f'
                         },
-                        neutral: { // Off-White / Light Beige
-                           DEFAULT: '#f5f5f4', // Stone 100
-                           '50': '#fafaf9', // Stone 50
-                           '100': '#f5f5f4', // Stone 100
-                           '200': '#e7e5e4', // Stone 200
-                           '300': '#d6d3d1'  // Stone 300
-                        }
+                        neutral: {
+                           '50': '#f8fafc',
+                           '100': '#f1f5f9',
+                           '200': '#e2e8f0',
+                           '900': '#0f172a'
+                        },
+                        'dark-text': '#1e293b'
                     },
                     fontFamily: {
                         'sans': ['Tajawal', 'sans-serif'],
-                        'quran': ['Lateef', 'serif'], // Font for Quranic verses
+                        'quran': ['Amiri', 'serif'],
+                        'decorative': ['Aref Ruqaa', 'serif']
                     },
                     backgroundImage: {
-                       'islamic-geo': "url('https://www.transparenttextures.com/patterns/arabesque-dark.png')", // Example pattern
-                       'hero-gradient': 'linear-gradient(145deg, #0f172a 0%, #134e4a 50%, #0f766e 100%)',
-                       'creator-bg': 'linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)',
+                       'islamic-pattern': "url('https://i.imgur.com/8cHWLZM.png')",
+                       'hero-gradient': 'linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(139, 92, 246, 0.8) 100%)',
+                       'section-gradient': 'linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%)',
+                       'footer-pattern': "url('https://i.imgur.com/JQYgFZj.png')"
                     },
-                     animation: {
-                        'slow-pulse': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'subtle-float': 'float 6s ease-in-out infinite',
-                     },
-                     keyframes: {
-                         float: {
-                           '0%, 100%': { transform: 'translateY(0px)' },
-                           '50%': { transform: 'translateY(-10px)' },
-                         }
-                     }
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                        'mosque': '70% 70% 5% 5% / 60% 60% 10% 10%'
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 15px -3px rgba(0, 0, 0, 0.05), 0 2px 8px -4px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -6px rgba(0, 0, 0, 0.1)',
+                        'lifted': '0 15px 35px -10px rgba(13, 148, 136, 0.3), 0 8px 15px -8px rgba(13, 148, 136, 0.2)',
+                        'glow': '0 0 15px 2px rgba(139, 92, 246, 0.3)'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
                 }
             }
         }
@@ -89,423 +103,660 @@
     <style>
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: #0f172a; /* Dark base */
-            color: #e2e8f0; /* Light text for dark bg */
+            background-color: #ffffff;
+            color: #1e293b;
+            overflow-x: hidden;
         }
-
+        
         .quran-text {
-            font-family: 'quran', serif;
-            font-size: 2em; /* Larger size for impact */
-            line-height: 2.5;
-            color: #eab308; /* Gold color */
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            direction: rtl; /* Ensure RTL for Quranic text */
+            font-family: 'Amiri', serif;
+            font-size: 2.1em;
+            line-height: 2.2;
+            color: #0f766e;
+            text-shadow: 1px 1px 2px rgba(199, 210, 254, 0.2);
+            direction: rtl;
         }
         
         .hadith-text {
-           font-family: 'Tajawal', sans-serif;
+           font-family: 'Amiri', serif;
            font-style: italic;
-           font-size: 1.1em;
+           font-size: 1.2em;
            line-height: 1.8;
-           color: #94a3b8; /* Lighter secondary color */
+           color: #4b5563;
            direction: rtl;
         }
 
-        .feature-card, .testimonial-card, .creator-card {
+        .decorative-heading {
+            font-family: 'Aref Ruqaa', serif;
+            letter-spacing: -0.5px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.05), 0 2px 8px -4px rgba(0, 0, 0, 0.04);
             transition: all 0.4s ease-out;
-            background: rgba(40, 52, 70, 0.6); /* Slightly transparent dark slate */
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(148, 163, 184, 0.2); /* Subtle border */
-            border-radius: 1rem; /* More rounded */
-            overflow: hidden; /* Ensure content respects border radius */
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
         }
 
-        .feature-card:hover, .testimonial-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
-            border-color: rgba(234, 179, 8, 0.4); /* Accent border on hover */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px -10px rgba(13, 148, 136, 0.3), 0 8px 15px -8px rgba(13, 148, 136, 0.2);
+            border-color: #5eead4;
         }
         
-        .glass-nav {
-             background: rgba(15, 23, 42, 0.8); /* Darker, more transparent nav */
+        .nav-sticky {
+             background-color: rgba(255, 255, 255, 0.9);
              backdrop-filter: blur(10px);
+             border-bottom: 1px solid #f1f5f9;
         }
-
-        .section-divider {
+        
+        .wave-divider {
+            width: 100%;
             height: 80px;
-            background-image: url('placeholder_divider_pattern.svg'); /* Replace with actual SVG pattern */
-            background-repeat: repeat-x;
-            background-position: center;
-            opacity: 0.1;
-            margin: 2rem 0;
+            background-image: url('https://i.imgur.com/JQYgFZj.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            margin-top: -1px;
+            margin-bottom: -1px;
         }
         
-        /* Subtle animation for the hero background */
-        .animated-gradient-bg {
-            background: linear-gradient(-45deg, #0f172a, #134e4a, #0f766e, #115e59);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .gradient-text {
+            background: linear-gradient(45deg, #0d9488, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
         
-         .creator-image {
-            border: 4px solid #eab308; /* Gold border */
-         }
+        .cta-button-primary {
+             background: linear-gradient(45deg, #0d9488, #14b8a6);
+             color: white;
+             transition: all 0.3s ease;
+             box-shadow: 0 4px 15px -3px rgba(13, 148, 136, 0.3);
+        }
+        
+        .cta-button-primary:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 8px 20px -4px rgba(13, 148, 136, 0.4);
+        }
+         
+        .cta-button-secondary {
+             background-color: white;
+             color: #0d9488;
+             border: 1px solid #5eead4;
+             transition: all 0.3s ease;
+        }
+        
+        .cta-button-secondary:hover {
+              background-color: #f0fdfa;
+              border-color: #0d9488;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .creator-image {
+            border: 4px solid #5eead4;
+            padding: 4px;
+        }
 
+        .islamic-ornament {
+            position: relative;
+        }
+        
+        .islamic-ornament::before, .islamic-ornament::after {
+            content: "❁";
+            font-size: 1.5rem;
+            color: #0d9488;
+            opacity: 0.7;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .islamic-ornament::before {
+            left: -2rem;
+        }
+        
+        .islamic-ornament::after {
+            right: -2rem;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px 2px rgba(139, 92, 246, 0.3);
+        }
+
+        .mosque-shape {
+            border-radius: 70% 70% 5% 5% / 60% 60% 10% 10%;
+        }
+
+        .pattern-bg {
+            background-image: url('https://i.imgur.com/8cHWLZM.png');
+            background-repeat: repeat;
+            background-size: 200px;
+            background-blend-mode: overlay;
+        }
+
+        .testimonial-card {
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 5rem;
+            font-family: 'Amiri', serif;
+            color: rgba(13, 148, 136, 0.1);
+            line-height: 1;
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .feature-icon-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-icon-container::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, rgba(94, 234, 212, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 9999px;
+            z-index: -1;
+            transform: scale(0);
+            transition: transform 0.3s ease-out;
+        }
+
+        .card:hover .feature-icon-container::after {
+            transform: scale(1.5);
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .author-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .author-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
     </style>
 </head>
-<body class="text-neutral-200">
+<body class="bg-neutral-50 text-dark-text">
 
-    <nav class="glass-nav shadow-lg sticky top-0 z-50 border-b border-secondary-700">
+    <!-- Navigation -->
+    <nav class="nav-sticky shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-3 space-x-reverse">
-                     <img src="placeholder_logo.png" alt="بوت الأذكار Logo" class="h-8 w-auto"> 
-                    <span class="font-bold text-xl text-white">بوت الأذكار</span>
+                    <img src="images/atkhkar-bot-logo.png" alt="بوت الأذكار Logo" class="h-10 w-auto rounded-full"> 
+                    <span class="font-bold text-xl text-primary-700 decorative-heading">بوت الأذكار</span>
                 </div>
                 <div class="hidden md:flex space-x-6 space-x-reverse">
-                    <a href="#hero" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الرئيسية</a>
-                    <a href="#creator" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">عن المطور</a>
-                    <a href="#features" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">المميزات</a>
-                    <a href="#commands" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الأوامر</a>
-                    </div>
+                    <a href="#hero" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الرئيسية</a>
+                    <a href="#author" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">المطور</a>
+                    <a href="#features" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">المميزات</a>
+                    <a href="#commands" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الأوامر</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الآراء</a>
+                </div>
                 <div class="md:hidden">
-                    <button class="mobile-menu-button p-2 focus:outline-none text-white">
+                    <button class="mobile-menu-button p-2 focus:outline-none text-gray-700">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="mobile-menu hidden md:hidden bg-secondary-800 border-t border-secondary-700">
-             <a href="#hero" class="block py-3 px-4 hover:bg-secondary-700 transition">الرئيسية</a>
-             <a href="#creator" class="block py-3 px-4 hover:bg-secondary-700 transition">عن المطور</a>
-             <a href="#features" class="block py-3 px-4 hover:bg-secondary-700 transition">المميزات</a>
-             <a href="#commands" class="block py-3 px-4 hover:bg-secondary-700 transition">الأوامر</a>
-             </div>
+        <div class="mobile-menu hidden md:hidden bg-white border-t border-neutral-100">
+            <a href="#hero" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">الرئيسية</a>
+            <a href="#author" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">المطور</a>
+            <a href="#features" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">المميزات</a>
+            <a href="#commands" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">الأوامر</a>
+        </div>
     </nav>
 
-    <header id="hero" class="animated-gradient-bg text-white relative overflow-hidden min-h-screen flex items-center">
-        <div class="absolute inset-0 bg-islamic-geo opacity-5 z-0"></div>
+    <!-- Hero Section -->
+    <header id="hero" class="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pattern-bg opacity-[0.03] z-0"></div>
+        <div class="absolute top-1/4 -left-10 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -right-10 w-64 h-64 bg-secondary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-slow"></div>
         
-        <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-10">
-            <i class="fas fa-star absolute top-1/4 left-1/4 text-accent opacity-20 text-xl animate-ping"></i>
-             <i class="fas fa-moon absolute top-1/3 right-1/4 text-primary opacity-10 text-3xl animate-subtle-float"></i>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="inline-block mb-6 relative">
+                <span class="absolute inset-0 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-full blur-xl opacity-50 animate-pulse-slow"></span>
+                <img src="images/atkhkar-bot-logo.png" alt="بوت الأذكار Logo" class="h-24 w-auto relative floating">
+            </div>
             
-            <img src="placeholder_logo.png" alt="Athkar Bot Logo" class="h-20 w-auto mx-auto mb-6 opacity-90">
-
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-shadow-lg">بوت الأذكار لديسكورد</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-neutral-300">اجعل ذكر الله رفيقك الدائم في سيرفرك مع تذكيرات الصباح والمساء.</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-5 text-dark-text decorative-heading">
+                اجعل <span class="gradient-text">ذكر الله</span> منعشاً ليومك
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-gray-600">
+                بوت الأذكار يأتيك بأذكار الصباح والمساء وأدعية مختارة بأسلوب عصري ومنعش في سيرفر ديسكورد الخاص بك.
+            </p>
 
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-5 sm:space-x-reverse mb-12">
-                <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
-                   class="bg-accent hover:bg-amber-600 text-secondary-900 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse text-lg">
-                   <i class="fab fa-discord text-xl"></i>
+                <a href="https://discord.com/oauth2/authorize?client_id=1368232333349486724" 
+                   class="cta-button-primary font-bold py-4 px-10 rounded-full shadow-lg transform flex items-center justify-center space-x-2 space-x-reverse text-lg">
+                   <i class="fas fa-leaf text-xl opacity-90"></i>
                    <span>أضف البوت الآن</span>
                 </a>
                 <a href="#features" 
-                   class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
+                   class="cta-button-secondary font-bold py-4 px-10 rounded-full shadow-sm transform text-lg">
                    اكتشف المميزات
                 </a>
             </div>
 
-            <div class="mt-12 bg-black/20 backdrop-blur-md rounded-xl p-6 max-w-4xl mx-auto text-center border border-neutral-700/50">
-                 <p class="quran-text mb-2">"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"</p>
-                 <p class="text-neutral-400 text-lg">الرعد: 28</p>
+            <div class="mt-8 bg-white/70 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto text-center border border-neutral-200 shadow-subtle mosque-shape">
+                <div class="mb-2 text-accent-500 text-2xl">
+                    <i class="fas fa-star-and-crescent"></i>
+                </div>
+                <p class="quran-text mb-3 text-primary-700">"إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ * الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ..."</p>
+                <p class="text-gray-500 text-md">آل عمران: 190-191</p>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#author" class="inline-block text-primary-500 animate-bounce">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
             </div>
         </div>
     </header>
-
-    <section id="creator" class="py-16 md:py-24 bg-secondary-800 relative overflow-hidden">
-         <div class="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 text-primary opacity-10 transform rotate-45">
-            <i class="fas fa-star-and-crescent text-9xl"></i> 
-         </div>
+    
+    <!-- Author Section (New) -->
+    <section id="author" class="py-20 relative overflow-hidden bg-gradient-to-b from-white to-neutral-50">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">عن المطور</h2>
-                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text decorative-heading islamic-ornament inline-block">المطور</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-3"></div>
             </div>
 
-            <div class="creator-card max-w-4xl mx-auto p-8 md:flex items-center space-x-0 md:space-x-8 md:space-x-reverse">
-                <div class="md:w-1/3 text-center mb-6 md:mb-0">
-                    <img src="placeholder_creator_image.jpg" alt="Abdelhakim Baalla - Dino Crafting" class="w-40 h-40 rounded-full mx-auto shadow-lg creator-image object-cover">
-                </div>
-                <div class="md:w-2/3 text-center md:text-right">
-                    <h3 class="text-2xl font-bold text-white mb-2">عبد الحكيم بعلا</h3>
-                    <p class="text-primary text-lg mb-4 font-medium">Dino Crafting (يوتيوب)</p>
-                    <p class="text-neutral-300 mb-6 text-lg leading-relaxed">
-                        مطور هذا البوت بهدف نشر الخير وتسهيل ذكر الله على المسلمين في منصة ديسكورد. أسأل الله أن يتقبل هذا العمل ويجعله خالصاً لوجهه الكريم.
-                    </p>
-                    <div class="flex justify-center md:justify-end space-x-4 space-x-reverse">
-                        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://youtube.com/c/DinoCrafting" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="YouTube Dino Crafting">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                         <a href="mailto:your.email@example.com" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="Email">
-                             <i class="fas fa-envelope"></i>
-                         </a>
+            <div class="author-card max-w-5xl mx-auto p-8 rounded-2xl bg-white shadow-lifted border border-primary-100 relative z-10">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/3 text-center mb-8 md:mb-0">
+                        <div class="relative inline-block">
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full blur-md opacity-20 scale-110"></div>
+                            <img src="images/abdelhakim-baalla.jpg" alt="Abdelhakim Baalla - Dino Crafting" class="w-48 h-48 rounded-full mx-auto shadow-lg creator-image object-cover relative">
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary-700 mt-4 mb-1 decorative-heading">عبد الحكيم باعلا</h3>
+                        <p class="text-secondary-500 text-lg mb-3 font-medium">Dino Crafting</p>
+                        
+                        <div class="flex justify-center space-x-4 space-x-reverse mt-4">
+                            <a href="https://github.com/Abdelhakim-Baalla" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-primary-100 text-primary-600 rounded-full flex items-center justify-center transition" title="GitHub">
+                                <i class="fab fa-github text-lg"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/abdelhakimbaalla/" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-primary-100 text-primary-600 rounded-full flex items-center justify-center transition" title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@Dinocrafting" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-accent-100 text-accent-600 rounded-full flex items-center justify-center transition" title="YouTube">
+                                <i class="fab fa-youtube text-lg"></i>
+                            </a>
+                            <a href="mailto:abdelhakimbaalla50@gmail.com" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-secondary-100 text-secondary-600 rounded-full flex items-center justify-center transition" title="Email">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </a>
+                        </div>
                     </div>
+                    
+                    <div class="md:w-2/3 md:pr-8 text-center md:text-right">
+                        <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-100 mb-6 relative">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-primary-50 rounded-bl-3xl rounded-tr-xl -mt-3 -mr-3 z-0"></div>
+                            <p class="text-gray-700 text-lg leading-relaxed relative z-10">
+                                مبرمج ومحب للخير، أقدم هذا البوت كأداة بسيطة للمساعدة على ذكر الله في حياتنا الرقمية. آمل أن يكون إضافة نافعة لمجتمعكم ولكل من يرغب في الحفاظ على صلته بالله في عالمنا المعاصر.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gradient-to-br from-primary-50 to-primary-100 p-5 rounded-xl border border-primary-200">
+                                <h4 class="font-bold text-primary-700 mb-2">المهارات</h4>
+                                <p class="text-gray-700">تطوير و تصميم مواقع الويب, بوتات ديسكورد، تصميم واجهات المستخدم</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 p-5 rounded-xl border border-secondary-200">
+                                <h4 class="font-bold text-secondary-700 mb-2">المشاريع</h4>
+                                <p class="text-gray-700">بوت الأذكار، محتوى تعليمي على يوتيوب، مشاريع برمجية متنوعة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="hadith-text max-w-3xl mx-auto p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-subtle border border-neutral-200">
+                    <i class="fas fa-quote-right text-primary-300 text-xl mb-2"></i>
+                    <p class="mb-2 text-gray-700">"خَيْرُكُمْ مَنْ تَعَلَّمَ القُرْآنَ وَعَلَّمَهُ"</p>
+                    <p class="text-gray-500 text-sm">رواه البخاري</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-16 md:py-24 bg-secondary-900 bg-islamic-geo bg-opacity-5">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">لماذا بوت الأذكار؟</h2>
-                <div class="w-24 h-1 bg-primary mx-auto"></div>
+    <!-- Features Section -->
+    <section id="features" class="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text decorative-heading islamic-ornament inline-block">مميزات منعشة</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-3"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">تم تصميم بوت الأذكار ليكون رفيقك اليومي في رحلة الذكر والتقرب إلى الله</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card p-8 text-center">
-                    <div class="text-accent text-5xl mb-6 inline-block">
-                        <i class="fas fa-cloud-sun"></i>
+                <div class="card group">
+                    <div class="h-24 bg-gradient-to-r from-primary-400 to-primary-600 rounded-t-xl flex items-center justify-center">
+                        <div class="feature-icon-container bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-cloud-sun text-primary-500 text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">أذكار الصباح والمساء التلقائية</h3>
-                    <p class="text-neutral-300">إرسال تلقائي يومي لأذكار الصباح (6ص) والمساء (6م) في قناتك المحددة.</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-600 transition-colors">أذكار الصباح والمساء</h3>
+                        <p class="text-gray-600">تذكير تلقائي في الوقت المناسب (6ص و 6م) لبداية ونهاية يوم مباركة مع أذكار متنوعة.</p>
+                    </div>
                 </div>
-
-                <div class="feature-card p-8 text-center">
-                    <div class="text-accent text-5xl mb-6 inline-block">
-                        <i class="fas fa-book-quran"></i>
+                
+                <div class="card group">
+                    <div class="h-24 bg-gradient-to-r from-secondary-400 to-secondary-600 rounded-t-xl flex items-center justify-center">
+                        <div class="feature-icon-container bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-hand-holding-water text-secondary-500 text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">أدعية وأذكار من السنة</h3>
-                    <p class="text-neutral-300">مجموعة مختارة من الأذكار والأدعية الصحيحة لتستخدمها في أي وقت.</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-secondary-600 transition-colors">أدعية وأذكار متنوعة</h3>
+                        <p class="text-gray-600">مجموعة مختارة من الأدعية النبوية والأذكار لطلبها في أي وقت تحتاجها.</p>
+                    </div>
                 </div>
-
-                <div class="feature-card p-8 text-center">
-                     <div class="text-accent text-5xl mb-6 inline-block">
-                        <i class="fas fa-terminal"></i>
+                
+                <div class="card group">
+                    <div class="h-24 bg-gradient-to-r from-accent-400 to-accent-600 rounded-t-xl flex items-center justify-center">
+                        <div class="feature-icon-container bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-feather-alt text-accent-500 text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">سهولة الاستخدام</h3>
-                    <p class="text-neutral-300">أوامر بسيطة وواضحة (`!أذكار`, `!أذكار صباح`, `!أذكار مساء`) للوصول السريع.</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-accent-600 transition-colors">سهولة وبساطة</h3>
+                        <p class="text-gray-600">أوامر بسيطة (!أذكار, !مساعدة) وتصميم نظيف لتجربة سلسة ومريحة للجميع.</p>
+                    </div>
                 </div>
-
-                <div class="feature-card p-8 text-center">
-                    <div class="text-accent text-5xl mb-6 inline-block">
-                        <i class="fas fa-bell"></i>
+                
+                <div class="card group">
+                    <div class="h-24 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-t-xl flex items-center justify-center">
+                        <div class="feature-icon-container bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-seedling text-primary-500 text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">تذكير دائم بالخير</h3>
-                    <p class="text-neutral-300">لا تفوت فضل الذكر مع التنبيهات المنتظمة التي تساعد على المداومة.</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-600 transition-colors">تذكير دائم بالخير</h3>
+                        <p class="text-gray-600">يساعدك على البقاء متصلاً بذكر الله طوال اليوم دون عناء أو تكلف.</p>
+                    </div>
                 </div>
-
-                <div class="feature-card p-8 text-center">
-                    <div class="text-accent text-5xl mb-6 inline-block">
-                         <i class="fas fa-users"></i>
+                
+                <div class="card group">
+                    <div class="h-24 bg-gradient-to-r from-secondary-400 to-primary-400 rounded-t-xl flex items-center justify-center">
+                        <div class="feature-icon-container bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-users text-secondary-500 text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">مثالي للمجتمعات</h3>
-                    <p class="text-neutral-300">مناسب للسيرفرات الإسلامية، العائلية، التعليمية، وكل مجتمع يسعى للخير.</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-secondary-600 transition-colors">مناسب للمجتمعات</h3>
+                        <p class="text-gray-600">إضافة رائعة للسيرفرات الإسلامية والعربية لتعزيز الأجواء الإيمانية والروحانية.</p>
+                    </div>
                 </div>
-
-                <div class="feature-card p-8 text-center">
-                    <div class="text-accent text-5xl mb-6 inline-block">
-                        <i class="fas fa-shield-heart"></i>
+                
+                <div class="card group">
+                    <div class="h-24 bg-gradient-to-r from-accent-400 to-primary-400 rounded-t-xl flex items-center justify-center">
+                        <div class="feature-icon-container bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-gift text-accent-500 text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">مجاني وبدون إعلانات</h3>
-                    <p class="text-neutral-300">بوت مجاني تماماً، نقي من الإعلانات، يهدف لنشر الفائدة.</p>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-accent-600 transition-colors">مجاني ونقي</h3>
+                        <p class="text-gray-600">بوت مجاني بالكامل، بلا إعلانات، هدفه نشر الفائدة والذكر الطيب بين المسلمين.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="py-12 bg-secondary-800">
-        <div class="container mx-auto px-6 text-center">
-             <p class="quran-text mb-2">"فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ"</p>
-             <p class="text-neutral-400 text-lg">البقرة: 152</p>
+    <!-- Quran Section -->
+    <section class="py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lifted border border-primary-100 mosque-shape">
+                <div class="mb-3 text-accent-500 text-2xl">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <p class="quran-text mb-3 text-primary-700">"وَلَذِكْرُ اللَّهِ أَكْبَرُ ۗ وَاللَّهُ يَعْلَمُ مَا تَصْنَعُونَ"</p>
+                <p class="text-gray-500 text-md">العنكبوت: 45</p>
+                
+                <div class="mt-6 w-24 h-1 bg-gradient-to-r from-primary-200 to-secondary-200 mx-auto rounded-full"></div>
+                
+                <p class="quran-text mt-6 mb-3 text-secondary-700">"الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"</p>
+                <p class="text-gray-500 text-md">الرعد: 28</p>
+            </div>
         </div>
     </section>
 
-    <section id="commands" class="py-16 md:py-24 bg-secondary-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">كيفية الاستخدام والأوامر</h2>
-                <div class="w-24 h-1 bg-primary mx-auto"></div>
+    <!-- Commands Section -->
+    <section id="commands" class="py-20 md:py-28 bg-neutral-50 relative overflow-hidden">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text decorative-heading islamic-ornament inline-block">كيف تبدأ رحلة الذكر؟</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-3"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">خطوات بسيطة تفصلك عن تجربة منعشة مع بوت الأذكار</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 text-center">
-                <div class="flex flex-col items-center">
-                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-secondary-900 text-3xl font-bold mb-5 shadow-lg border-4 border-primary-700">
-                       <i class="fas fa-plus"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+                <div class="card group hover:bg-primary-50 transition-colors">
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center text-primary-600 text-3xl font-bold mb-6 mx-auto shadow-sm border border-white group-hover:shadow-md group-hover:border-primary-200 transition-all">1</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-primary-700">أضف البوت</h3>
+                        <p class="text-gray-600">اضغط زر الإضافة واختر سيرفرك بسهولة من القائمة المنسدلة.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-white">1. أضف البوت</h3>
-                    <p class="text-neutral-300">اضغط على زر "أضف البوت الآن" واختر سيرفرك.</p>
                 </div>
-                <div class="flex flex-col items-center">
-                     <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-secondary-900 text-3xl font-bold mb-5 shadow-lg border-4 border-primary-700">
-                        <i class="fas fa-check-double"></i>
+                
+                <div class="card group hover:bg-secondary-50 transition-colors">
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-full flex items-center justify-center text-secondary-600 text-3xl font-bold mb-6 mx-auto shadow-sm border border-white group-hover:shadow-md group-hover:border-secondary-200 transition-all">2</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-secondary-700">امنح الصلاحيات</h3>
+                        <p class="text-gray-600">تأكد أن البوت يمتلك صلاحية إرسال الرسائل في القنوات المطلوبة.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-white">2. امنح الصلاحيات</h3>
-                    <p class="text-neutral-300">تأكد من إعطاء البوت صلاحية إرسال الرسائل في القناة المطلوبة.</p>
                 </div>
-                 <div class="flex flex-col items-center">
-                     <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-secondary-900 text-3xl font-bold mb-5 shadow-lg border-4 border-primary-700">
-                       <i class="fas fa-comment-dots"></i>
+                
+                <div class="card group hover:bg-accent-50 transition-colors">
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-accent-100 to-accent-200 rounded-full flex items-center justify-center text-accent-600 text-3xl font-bold mb-6 mx-auto shadow-sm border border-white group-hover:shadow-md group-hover:border-accent-200 transition-all">3</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-accent-700">استخدم الأوامر</h3>
+                        <p class="text-gray-600">اكتب athkar! لتبدأ تجربتك المنعشة مع ذكر الله في سيرفرك.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-white">3. استخدم الأوامر</h3>
-                    <p class="text-neutral-300">اكتب `!أذكار` في أي قناة لبدء التذكير التلقائي واستخدام الأوامر.</p>
-                 </div>
+                </div>
             </div>
-
-            <div class="bg-secondary-800 rounded-xl shadow-xl overflow-hidden max-w-5xl mx-auto border border-secondary-700">
+            
+            <div class="card max-w-5xl mx-auto overflow-hidden">
+                <div class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white p-6 text-center">
+                    <h3 class="text-2xl font-bold decorative-heading">الأوامر الرئيسية</h3>
+                </div>
+                
                 <div class="md:flex">
-                    <div class="md:w-1/2 bg-gradient-to-br from-primary-700 to-primary-900 text-white p-8 flex items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-6 flex items-center"><i class="fas fa-list-check mr-3"></i>قائمة الأوامر</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start space-x-3 space-x-reverse">
-                                    <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!أذكار</code>
-                                    <span class="text-neutral-100">عرض ذكر عشوائي وتحديد قناة التذكير (أول مرة).</span>
-                                </li>
-                                 <li class="flex items-start space-x-3 space-x-reverse">
-                                    <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!أذكار صباح</code>
-                                    <span class="text-neutral-100">عرض أذكار الصباح الكاملة.</span>
-                                </li>
-                                <li class="flex items-start space-x-3 space-x-reverse">
-                                    <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!أذكار مساء</code>
-                                    <span class="text-neutral-100">عرض أذكار المساء الكاملة.</span>
-                                </li>
-                                <li class="flex items-start space-x-3 space-x-reverse">
-                                     <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!مساعدة</code>
-                                    <span class="text-neutral-100">عرض رسالة المساعدة هذه وقائمة الأوامر.</span>
-                                </li>
-                                </ul>
+                    <div class="md:w-1/2 p-8 border-b md:border-b-0 md:border-l border-neutral-200">
+                        <ul class="space-y-6">
+                            <li class="flex items-start space-x-4 space-x-reverse">
+                                <span class="mt-1 w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <div>
+                                    <code class="text-primary-700 font-semibold font-mono text-lg">athkar!</code>
+                                    <p class="text-gray-600 mt-1">يعرض ذكراً عشوائياً ويبدأ التذكير التلقائي.</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start space-x-4 space-x-reverse">
+                                <span class="mt-1 w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <div>
+                                    <code class="text-primary-700 font-semibold font-mono text-lg">athkar morning! </code>
+                                    <p class="text-gray-600 mt-1">يعرض أذكار الصباح كاملة لبداية يوم مبارك.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <ul class="space-y-6">
+                            <li class="flex items-start space-x-4 space-x-reverse">
+                                <span class="mt-1 w-8 h-8 bg-secondary-100 text-secondary-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <div>
+                                    <code class="text-secondary-700 font-semibold font-mono text-lg">athkar evening!</code>
+                                    <p class="text-gray-600 mt-1">يعرض أذكار المساء كاملة لختام يوم مبارك.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-6 bg-neutral-50 border-t border-neutral-200 text-center">
+                    <div class="inline-block relative">
+                        <img src="images/example-commande.png" alt="مثال على أوامر البوت" class="rounded-lg shadow-md border border-neutral-200 max-w-full h-auto">
+                        <div class="absolute -bottom-3 -right-3 bg-white p-2 rounded-full shadow-md border border-primary-200">
+                            <i class="fas fa-robot text-primary-500 text-2xl"></i>
                         </div>
                     </div>
-                    <div class="md:w-1/2 p-6 bg-secondary-900 flex items-center justify-center">
-                         <img src="https://i.imgur.com/JQlEx8P.png" alt="مثال على أوامر البوت" class="rounded-lg shadow-md border border-secondary-700 max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="py-24 md:py-32 bg-gradient-to-br from-primary-600 to-secondary-600 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 pattern-bg opacity-[0.05] z-0"></div>
+        <div class="absolute top-0 left-0 w-full h-12 bg-gradient-to-r from-primary-400 to-secondary-400 opacity-30"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 decorative-heading">جدد يومك بذكر الله!</h2>
+                <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">انضم للمستخدمين السعداء وأضف بوت الأذكار لسيرفرك الآن بضغطة زر.</p>
+
+                <a href="https://discord.com/oauth2/authorize?client_id=1368232333349486724" 
+                   class="bg-white hover:bg-neutral-50 text-primary-600 font-bold py-5 px-12 rounded-full shadow-xl transition duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-3 space-x-reverse text-xl mb-16">
+                    <i class="fab fa-discord text-2xl"></i>
+                    <span>أضف البوت الآن</span>
+                </a>
+
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto text-center border border-white/30 mosque-shape">
+                    <div class="mb-3 text-white text-2xl">
+                        <i class="fas fa-heart"></i>
                     </div>
+                    <p class="hadith-text mb-3 text-white">"أَلَا أُنَبِّئُكُمْ بِخَيْرِ أَعْمَالِكُمْ، وَأَزْكَاهَا عِنْدَ مَلِيكِكُمْ، وَأَرْفَعِهَا فِي دَرَجَاتِكُمْ، وَخَيْرٍ لَكُمْ مِنْ إِنْفَاقِ الذَّهَبِ وَالْوَرِقِ، وَخَيْرٍ لَكُمْ مِنْ أَنْ تَلْقَوْا عَدُوَّكُمْ فَتَضْرِبُوا أَعْنَاقَهُمْ وَيَضْرِبُوا أَعْنَاقَكُمْ؟ قَالُوا: بَلَى. قَالَ: ذِكْرُ اللَّهِ تَعَالَى."</p>
+                    <p class="text-primary-200 font-medium">سنن الترمذي</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="py-16 md:py-24 bg-secondary-800">
-         <div class="container mx-auto px-6">
-             <div class="text-center mb-12 md:mb-16">
-                 <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">ماذا قال المستخدمون؟</h2>
-                 <div class="w-24 h-1 bg-accent mx-auto"></div>
-             </div>
-
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 <div class="testimonial-card p-6">
-                     <div class="flex items-center mb-4">
-                         <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-xl text-white font-bold mr-4 ml-0">ع</div>
-                         <div>
-                             <h4 class="font-bold text-lg text-white">عمر م.</h4>
-                              <div class="flex text-yellow-400 text-sm">
-                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                             </div>
-                         </div>
-                     </div>
-                     <p class="text-neutral-300 italic">"بوت رائع ومفيد جداً! التذكير اليومي يساعدني على عدم نسيان الأذكار وسط مشاغل اليوم. جزى الله المطور خيراً."</p>
-                 </div>
+    <!-- Footer -->
+    <footer class="bg-white pt-16 pb-8 border-t border-neutral-100 relative">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="text-center md:text-right">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="images/atkhkar-bot-logo.jpg" alt="Logo" class="h-10 w-auto ml-3">
+                        <h3 class="text-xl font-bold text-primary-700 decorative-heading">بوت الأذكار</h3>
+                    </div>
+                    <p class="text-gray-600">تذكير يومي منعش بذكر الله على منصة ديسكورد.</p>
+                    <p class="text-primary-500 mt-3 text-sm">تطوير: عبد الحكيم بعلا (Dino Crafting)</p>
+                </div>
                 
-                 <div class="testimonial-card p-6">
-                     <div class="flex items-center mb-4">
-                         <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-xl text-white font-bold mr-4 ml-0">ف</div>
-                         <div>
-                             <h4 class="font-bold text-lg text-white">فاطمة الـ..</h4>
-                              <div class="flex text-yellow-400 text-sm">
-                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                             </div>
-                         </div>
-                     </div>
-                     <p class="text-neutral-300 italic">"أفضل بوت أذكار استخدمته. بسيط، مباشر، وبدون إعلانات مزعجة. أنصح به لكل سيرفر عربي ومسلم."</p>
-                 </div>
-
-                 <div class="testimonial-card p-6">
-                     <div class="flex items-center mb-4">
-                         <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-xl text-white font-bold mr-4 ml-0">م</div>
-                         <div>
-                             <h4 class="font-bold text-lg text-white">مجتمع النور</h4>
-                              <div class="flex text-yellow-400 text-sm">
-                                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                             </div>
-                         </div>
-                     </div>
-                     <p class="text-neutral-300 italic">"نستخدم البوت في سيرفرنا التعليمي لتشجيع الأعضاء على الذكر. سهل الإضافة والاستخدام، وفكرته مباركة."</p>
-                 </div>
-             </div>
-         </div>
-     </section>
-
-    <section class="py-16 md:py-24 bg-secondary-900 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">انضم لآلاف السيرفرات التي تذكر الله</h2>
-            <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">لا تجعل الشيطان ينسيك ذكر ربك. أضف البوت الآن بضغطة زر!</p>
-
-            <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
-               class="bg-accent hover:bg-amber-600 text-secondary-900 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-2 space-x-reverse text-xl mb-12">
-               <i class="fab fa-discord text-2xl"></i>
-               <span>أضف بوت الأذكار</span>
-            </a>
-
-            <div class="mt-10 bg-secondary-800/50 border border-secondary-700 rounded-xl p-6 max-w-4xl mx-auto text-center">
-                 <p class="hadith-text mb-2">قال رسول الله ﷺ: "مَثَلُ الَّذِي يَذْكُرُ رَبَّهُ وَالَّذِي لَا يَذْكُرُ رَبَّهُ مَثَلُ الْحَيِّ وَالْمَيِّتِ"</p>
-                 <p class="text-primary-300 font-medium">صحيح البخاري</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-secondary-900 border-t border-secondary-700 pt-12 pb-8">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-right">
-                <div>
-                     <h3 class="text-xl font-bold mb-4 flex items-center justify-center md:justify-start text-white">
-                         <img src="placeholder_logo_white.png" alt="Logo" class="h-6 w-auto ml-2"> بوت الأذكار
-                     </h3>
-                    <p class="text-neutral-400">تذكير يومي بأذكار الصباح والمساء والمزيد على ديسكورد. عمل يهدف لوجه الله.</p>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-4 text-white">روابط سريعة</h3>
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 decorative-heading">روابط سريعة</h3>
                     <ul class="space-y-2">
-                        <li><a href="#hero" class="text-neutral-400 hover:text-primary transition">الرئيسية</a></li>
-                        <li><a href="#features" class="text-neutral-400 hover:text-primary transition">المميزات</a></li>
-                        <li><a href="#commands" class="text-neutral-400 hover:text-primary transition">الأوامر</a></li>
-                         <li><a href="#creator" class="text-neutral-400 hover:text-primary transition">عن المطور</a></li>
-                        </ul>
-                </div>
-
-                <div>
-                     <h3 class="text-xl font-bold mb-4 text-white">معلومات</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-neutral-400 hover:text-primary transition">سياسة الخصوصية</a></li>
-                        <li><a href="#" class="text-neutral-400 hover:text-primary transition">شروط الاستخدام</a></li>
-                         <li><a href="mailto:your.email@example.com" class="text-neutral-400 hover:text-primary transition">اتصل بنا</a></li>
+                        <li><a href="#hero" class="text-gray-600 hover:text-primary-600 transition">الرئيسية</a></li>
+                        <li><a href="#author" class="text-gray-600 hover:text-primary-600 transition">المطور</a></li>
+                        <li><a href="#features" class="text-gray-600 hover:text-primary-600 transition">المميزات</a></li>
+                        <li><a href="#commands" class="text-gray-600 hover:text-primary-600 transition">الأوامر</a></li>
+                        <li><a href="#testimonials" class="text-gray-600 hover:text-primary-600 transition">الآراء</a></li>
                     </ul>
                 </div>
-
-                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-white">تابع البوت</h3>
-                     <div class="flex space-x-4 space-x-reverse justify-center md:justify-start mb-4">
-                        <a href="#" class="w-10 h-10 bg-secondary-700 hover:bg-primary rounded-full flex items-center justify-center transition text-white" title="Support Server (Example)">
-                             <i class="fab fa-discord"></i>
-                         </a>
-                         <a href="#" class="w-10 h-10 bg-secondary-700 hover:bg-accent rounded-full flex items-center justify-center transition text-white" title="GitHub Repository (Example)">
+                
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 decorative-heading">معلومات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy.html" class="text-gray-600 hover:text-primary-600 transition">سياسة الخصوصية</a></li>
+                        <li><a href="/terms.html" class="text-gray-600 hover:text-primary-600 transition">شروط الاستخدام</a></li>
+                        <li><a href="mailto:abdelhakimbaalla50@gmail.com" class="text-gray-600 hover:text-primary-600 transition">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 decorative-heading">تابعنا وأضف البوت</h3>
+                    <div class="flex space-x-3 space-x-reverse justify-center md:justify-start mb-6">
+                        <a href="https://discord.gg/uG7MxUvw4w" target="_blank" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-primary-100 text-primary-600 rounded-full flex items-center justify-center transition" title="Support Server">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://github.com/Abdelhakim-Baalla" target="_blank" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-secondary-100 text-secondary-600 rounded-full flex items-center justify-center transition" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                     </div>
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
-                       class="bg-primary hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300 inline-flex items-center text-sm">
-                       <i class="fab fa-discord mr-2 ml-0"></i> أضف البوت
+                        <a href="https://www.youtube.com/@Dinocrafting" target="_blank" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-accent-100 text-accent-600 rounded-full flex items-center justify-center transition" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1368232333349486724" 
+                       class="cta-button-primary font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 inline-flex items-center text-sm">
+                       <i class="fas fa-plus mr-2 ml-0"></i> أضف البوت
                     </a>
                 </div>
             </div>
-
-            <div class="border-t border-secondary-700 pt-6 mt-8 text-center">
-                 <p class="text-neutral-400 text-sm">&copy; <span id="currentYear"></span> بوت الأذكار. تطوير عبد الحكيم بعلا.</p>
-                 <p class="text-neutral-500 text-xs mt-1">نسأل الله القبول والإخلاص.</p>
+            
+            <div class="border-t border-neutral-100 pt-8 mt-8 text-center">
+                <p class="text-gray-500 text-sm">© <span id="currentYear"></span> بوت الأذكار. جميع الحقوق محفوظة.</p>
+                <p class="text-gray-400 text-xs mt-2">{ سبحان الله وبحمده، سبحان الله العظيم }</p>
             </div>
         </div>
     </footer>
@@ -516,36 +767,65 @@
             document.querySelector('.mobile-menu').classList.toggle('hidden');
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                     // Add slight offset for fixed navbar height if needed
-                     const offset = 80; // Adjust based on your navbar height
-                     const bodyRect = document.body.getBoundingClientRect().top;
-                     const elementRect = targetElement.getBoundingClientRect().top;
-                     const elementPosition = elementRect - bodyRect;
-                     const offsetPosition = elementPosition - offset;
+                    const offset = 80; // Adjust for sticky nav height
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - offset;
 
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open after clicking a link
-                     const mobileMenu = document.querySelector('.mobile-menu');
-                     if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
-                     }
+                    // Close mobile menu
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 }
             });
         });
         
-        // Set current year in footer
+        // Set current year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
+        
+        // Add scroll reveal animation
+        const revealElements = document.querySelectorAll('.card, .quran-text, .hadith-text');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('animate-fade-in');
+                    element.style.opacity = '1';
+                }
+            });
+        };
+        
+        // Set initial opacity
+        revealElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            element.style.transform = 'translateY(20px)';
+        });
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial check on page load
+        revealOnScroll();
+        
+        // Add floating animation to specific elements
+        const floatingElements = document.querySelectorAll('.floating');
+        floatingElements.forEach(element => {
+            element.style.animation = 'float 6s ease-in-out infinite';
+        });
     </script>
 </body>
 </html>
