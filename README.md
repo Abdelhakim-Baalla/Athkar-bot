@@ -1,6 +1,3 @@
-Here's a complete, polished **README.md** in English for your Athkar Bot:
-
-
 # Athkar Bot - Islamic Reminders for Discord  
 
 <div align="center">
@@ -16,10 +13,6 @@ Here's a complete, polished **README.md** in English for your Athkar Bot:
 ## 📖 Introduction  
 **Athkar Bot** is a Discord bot designed to help Muslims maintain their daily remembrance of Allah (Dhikr) with automated morning and evening reminders. It brings authentic Islamic supplications directly to your Discord server.
 
-> "Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured."  
-> — **Quran 13:28**
-
----
 
 ## ✨ Key Features  
 ✅ **Automated Athkar** - Daily morning/evening reminders (6AM & 6PM)  
