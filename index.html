@@ -1,149 +1,511 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athkar Bot - Islamic Remembrances Discord Bot</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>بوت الأذكار - تذكير يومي بالذكر على ديسكورد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lateef:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="placeholder_favicon.png" type="image/png"> 
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // New Palette: Deep Teal, Night Sky, Gold, Off-White
+                        primary: { // Teal/Turquoise
+                            DEFAULT: '#14b8a6', // Teal 500
+                            '50': '#f0fdfa',
+                            '100': '#ccfbf1',
+                            '200': '#99f6e4',
+                            '300': '#5eead4',
+                            '400': '#2dd4bf',
+                            '500': '#14b8a6',
+                            '600': '#0d9488',
+                            '700': '#0f766e',
+                            '800': '#115e59',
+                            '900': '#134e4a'
+                        },
+                        secondary: { // Dark Slate Blue / Night Sky
+                            DEFAULT: '#1e293b', // Slate 700
+                            '50': '#f8fafc',
+                            '100': '#f1f5f9',
+                            '200': '#e2e8f0',
+                            '300': '#cbd5e1',
+                            '400': '#94a3b8',
+                            '500': '#64748b',
+                            '600': '#475569',
+                            '700': '#334155',
+                            '800': '#1e293b',
+                            '900': '#0f172a'
+                        },
+                        accent: { // Gold/Brass
+                            DEFAULT: '#eab308', // Amber 500
+                            '50': '#fffbeb',
+                            '100': '#fef3c7',
+                            '200': '#fde68a',
+                            '300': '#fcd34d',
+                            '400': '#fbbf24',
+                            '500': '#f59e0b', // Amber 600 (adjusted for more gold)
+                            '600': '#d97706', // Amber 700
+                            '700': '#b45309',
+                            '800': '#92400e',
+                            '900': '#78350f'
+                        },
+                        neutral: { // Off-White / Light Beige
+                           DEFAULT: '#f5f5f4', // Stone 100
+                           '50': '#fafaf9', // Stone 50
+                           '100': '#f5f5f4', // Stone 100
+                           '200': '#e7e5e4', // Stone 200
+                           '300': '#d6d3d1'  // Stone 300
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Tajawal', 'sans-serif'],
+                        'quran': ['Lateef', 'serif'], // Font for Quranic verses
+                    },
+                    backgroundImage: {
+                       'islamic-geo': "url('https://www.transparenttextures.com/patterns/arabesque-dark.png')", // Example pattern
+                       'hero-gradient': 'linear-gradient(145deg, #0f172a 0%, #134e4a 50%, #0f766e 100%)',
+                       'creator-bg': 'linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)',
+                    },
+                     animation: {
+                        'slow-pulse': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'subtle-float': 'float 6s ease-in-out infinite',
+                     },
+                     keyframes: {
+                         float: {
+                           '0%, 100%': { transform: 'translateY(0px)' },
+                           '50%': { transform: 'translateY(-10px)' },
+                         }
+                     }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0f172a; /* Dark base */
+            color: #e2e8f0; /* Light text for dark bg */
+        }
+
+        .quran-text {
+            font-family: 'quran', serif;
+            font-size: 2em; /* Larger size for impact */
+            line-height: 2.5;
+            color: #eab308; /* Gold color */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            direction: rtl; /* Ensure RTL for Quranic text */
+        }
+        
+        .hadith-text {
+           font-family: 'Tajawal', sans-serif;
+           font-style: italic;
+           font-size: 1.1em;
+           line-height: 1.8;
+           color: #94a3b8; /* Lighter secondary color */
+           direction: rtl;
+        }
+
+        .feature-card, .testimonial-card, .creator-card {
+            transition: all 0.4s ease-out;
+            background: rgba(40, 52, 70, 0.6); /* Slightly transparent dark slate */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(148, 163, 184, 0.2); /* Subtle border */
+            border-radius: 1rem; /* More rounded */
+            overflow: hidden; /* Ensure content respects border radius */
+        }
+
+        .feature-card:hover, .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(234, 179, 8, 0.4); /* Accent border on hover */
+        }
+        
+        .glass-nav {
+             background: rgba(15, 23, 42, 0.8); /* Darker, more transparent nav */
+             backdrop-filter: blur(10px);
+        }
+
+        .section-divider {
+            height: 80px;
+            background-image: url('placeholder_divider_pattern.svg'); /* Replace with actual SVG pattern */
+            background-repeat: repeat-x;
+            background-position: center;
+            opacity: 0.1;
+            margin: 2rem 0;
+        }
+        
+        /* Subtle animation for the hero background */
+        .animated-gradient-bg {
+            background: linear-gradient(-45deg, #0f172a, #134e4a, #0f766e, #115e59);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+         .creator-image {
+            border: 4px solid #eab308; /* Gold border */
+         }
+
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-green-600 text-white shadow-lg">
+<body class="text-neutral-200">
+
+    <nav class="glass-nav shadow-lg sticky top-0 z-50 border-b border-secondary-700">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-moon text-2xl"></i>
-                    <span class="font-bold text-xl">Athkar Bot</span>
+                <div class="flex items-center space-x-3 space-x-reverse">
+                     <img src="placeholder_logo.png" alt="بوت الأذكار Logo" class="h-8 w-auto"> 
+                    <span class="font-bold text-xl text-white">بوت الأذكار</span>
                 </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="hover:text-green-200 font-medium">Home</a>
-                    <a href="about.html" class="hover:text-green-200 font-medium">About</a>
-                    <a href="terms.html" class="hover:text-green-200 font-medium">Terms of Service</a>
-                    <a href="privacy.html" class="hover:text-green-200 font-medium">Privacy Policy</a>
-                </div>
+                <div class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="#hero" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الرئيسية</a>
+                    <a href="#creator" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">عن المطور</a>
+                    <a href="#features" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">المميزات</a>
+                    <a href="#commands" class="hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الأوامر</a>
+                    </div>
                 <div class="md:hidden">
-                    <button class="mobile-menu-button">
+                    <button class="mobile-menu-button p-2 focus:outline-none text-white">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden">
-            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-green-700">Home</a>
-            <a href="about.html" class="block py-2 px-4 text-sm hover:bg-green-700">About</a>
-            <a href="terms.html" class="block py-2 px-4 text-sm hover:bg-green-700">Terms of Service</a>
-            <a href="privacy.html" class="block py-2 px-4 text-sm hover:bg-green-700">Privacy Policy</a>
-        </div>
+        <div class="mobile-menu hidden md:hidden bg-secondary-800 border-t border-secondary-700">
+             <a href="#hero" class="block py-3 px-4 hover:bg-secondary-700 transition">الرئيسية</a>
+             <a href="#creator" class="block py-3 px-4 hover:bg-secondary-700 transition">عن المطور</a>
+             <a href="#features" class="block py-3 px-4 hover:bg-secondary-700 transition">المميزات</a>
+             <a href="#commands" class="block py-3 px-4 hover:bg-secondary-700 transition">الأوامر</a>
+             </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-green-500 text-white">
-        <div class="container mx-auto px-4 py-16 md:py-24 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Athkar Bot for Discord</h1>
-            <p class="text-xl md:text-2xl mb-8">Daily Islamic remembrances delivered to your Discord server</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+    <header id="hero" class="animated-gradient-bg text-white relative overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0 bg-islamic-geo opacity-5 z-0"></div>
+        
+        <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-10">
+            <i class="fas fa-star absolute top-1/4 left-1/4 text-accent opacity-20 text-xl animate-ping"></i>
+             <i class="fas fa-moon absolute top-1/3 right-1/4 text-primary opacity-10 text-3xl animate-subtle-float"></i>
+            
+            <img src="placeholder_logo.png" alt="Athkar Bot Logo" class="h-20 w-auto mx-auto mb-6 opacity-90">
+
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-shadow-lg">بوت الأذكار لديسكورد</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-neutral-300">اجعل ذكر الله رفيقك الدائم في سيرفرك مع تذكيرات الصباح والمساء.</p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-5 sm:space-x-reverse mb-12">
                 <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
-                   class="bg-white text-green-600 hover:bg-green-100 font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
-                   Add to Discord
+                   class="bg-accent hover:bg-amber-600 text-secondary-900 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse text-lg">
+                   <i class="fab fa-discord text-xl"></i>
+                   <span>أضف البوت الآن</span>
                 </a>
-                <a href="about.html" 
-                   class="bg-green-600 text-white hover:bg-green-700 font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
-                   Learn More
+                <a href="#features" 
+                   class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
+                   اكتشف المميزات
                 </a>
+            </div>
+
+            <div class="mt-12 bg-black/20 backdrop-blur-md rounded-xl p-6 max-w-4xl mx-auto text-center border border-neutral-700/50">
+                 <p class="quran-text mb-2">"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"</p>
+                 <p class="text-neutral-400 text-lg">الرعد: 28</p>
             </div>
         </div>
     </header>
 
-    <!-- Features Section -->
-    <section class="py-12 md:py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Bot Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-green-500 text-3xl mb-4">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Daily Athkar</h3>
-                    <p class="text-gray-600">Automated morning and evening Athkar sent at the appropriate times each day.</p>
+    <section id="creator" class="py-16 md:py-24 bg-secondary-800 relative overflow-hidden">
+         <div class="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 text-primary opacity-10 transform rotate-45">
+            <i class="fas fa-star-and-crescent text-9xl"></i> 
+         </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">عن المطور</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="creator-card max-w-4xl mx-auto p-8 md:flex items-center space-x-0 md:space-x-8 md:space-x-reverse">
+                <div class="md:w-1/3 text-center mb-6 md:mb-0">
+                    <img src="placeholder_creator_image.jpg" alt="Abdelhakim Baalla - Dino Crafting" class="w-40 h-40 rounded-full mx-auto shadow-lg creator-image object-cover">
                 </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-green-500 text-3xl mb-4">
-                        <i class="fas fa-comment-dots"></i>
+                <div class="md:w-2/3 text-center md:text-right">
+                    <h3 class="text-2xl font-bold text-white mb-2">عبد الحكيم بعلا</h3>
+                    <p class="text-primary text-lg mb-4 font-medium">Dino Crafting (يوتيوب)</p>
+                    <p class="text-neutral-300 mb-6 text-lg leading-relaxed">
+                        مطور هذا البوت بهدف نشر الخير وتسهيل ذكر الله على المسلمين في منصة ديسكورد. أسأل الله أن يتقبل هذا العمل ويجعله خالصاً لوجهه الكريم.
+                    </p>
+                    <div class="flex justify-center md:justify-end space-x-4 space-x-reverse">
+                        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://youtube.com/c/DinoCrafting" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="YouTube Dino Crafting">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                         <a href="mailto:your.email@example.com" class="text-neutral-400 hover:text-accent transition duration-300 text-2xl" title="Email">
+                             <i class="fas fa-envelope"></i>
+                         </a>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">On-Demand Reminders</h3>
-                    <p class="text-gray-600">Use simple commands to get random Athkar whenever you need spiritual reminders.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-green-500 text-3xl mb-4">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Easy Setup</h3>
-                    <p class="text-gray-600">Simple to add to your server with no complex configuration required.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="py-12 md:py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+    <section id="features" class="py-16 md:py-24 bg-secondary-900 bg-islamic-geo bg-opacity-5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">لماذا بوت الأذكار؟</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">1</div>
-                    <h3 class="text-xl font-bold mb-2">Add to Server</h3>
-                    <p class="text-gray-600">Click the "Add to Discord" button and select your server.</p>
+                <div class="feature-card p-8 text-center">
+                    <div class="text-accent text-5xl mb-6 inline-block">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">أذكار الصباح والمساء التلقائية</h3>
+                    <p class="text-neutral-300">إرسال تلقائي يومي لأذكار الصباح (6ص) والمساء (6م) في قناتك المحددة.</p>
                 </div>
-                <!-- Step 2 -->
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">2</div>
-                    <h3 class="text-xl font-bold mb-2">Set Channel</h3>
-                    <p class="text-gray-600">The bot will automatically use the channel where commands are first used.</p>
+
+                <div class="feature-card p-8 text-center">
+                    <div class="text-accent text-5xl mb-6 inline-block">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">أدعية وأذكار من السنة</h3>
+                    <p class="text-neutral-300">مجموعة مختارة من الأذكار والأدعية الصحيحة لتستخدمها في أي وقت.</p>
                 </div>
-                <!-- Step 3 -->
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">3</div>
-                    <h3 class="text-xl font-bold mb-2">Enjoy Daily Athkar</h3>
-                    <p class="text-gray-600">Receive daily morning and evening athkar, or use commands like !athkar anytime.</p>
+
+                <div class="feature-card p-8 text-center">
+                     <div class="text-accent text-5xl mb-6 inline-block">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">سهولة الاستخدام</h3>
+                    <p class="text-neutral-300">أوامر بسيطة وواضحة (`!أذكار`, `!أذكار صباح`, `!أذكار مساء`) للوصول السريع.</p>
+                </div>
+
+                <div class="feature-card p-8 text-center">
+                    <div class="text-accent text-5xl mb-6 inline-block">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">تذكير دائم بالخير</h3>
+                    <p class="text-neutral-300">لا تفوت فضل الذكر مع التنبيهات المنتظمة التي تساعد على المداومة.</p>
+                </div>
+
+                <div class="feature-card p-8 text-center">
+                    <div class="text-accent text-5xl mb-6 inline-block">
+                         <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">مثالي للمجتمعات</h3>
+                    <p class="text-neutral-300">مناسب للسيرفرات الإسلامية، العائلية، التعليمية، وكل مجتمع يسعى للخير.</p>
+                </div>
+
+                <div class="feature-card p-8 text-center">
+                    <div class="text-accent text-5xl mb-6 inline-block">
+                        <i class="fas fa-shield-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">مجاني وبدون إعلانات</h3>
+                    <p class="text-neutral-300">بوت مجاني تماماً، نقي من الإعلانات، يهدف لنشر الفائدة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-12 bg-secondary-800">
+        <div class="container mx-auto px-6 text-center">
+             <p class="quran-text mb-2">"فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ"</p>
+             <p class="text-neutral-400 text-lg">البقرة: 152</p>
+        </div>
+    </section>
+
+    <section id="commands" class="py-16 md:py-24 bg-secondary-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">كيفية الاستخدام والأوامر</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-secondary-900 text-3xl font-bold mb-5 shadow-lg border-4 border-primary-700">
+                       <i class="fas fa-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">1. أضف البوت</h3>
+                    <p class="text-neutral-300">اضغط على زر "أضف البوت الآن" واختر سيرفرك.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                     <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-secondary-900 text-3xl font-bold mb-5 shadow-lg border-4 border-primary-700">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">2. امنح الصلاحيات</h3>
+                    <p class="text-neutral-300">تأكد من إعطاء البوت صلاحية إرسال الرسائل في القناة المطلوبة.</p>
+                </div>
+                 <div class="flex flex-col items-center">
+                     <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-secondary-900 text-3xl font-bold mb-5 shadow-lg border-4 border-primary-700">
+                       <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">3. استخدم الأوامر</h3>
+                    <p class="text-neutral-300">اكتب `!أذكار` في أي قناة لبدء التذكير التلقائي واستخدام الأوامر.</p>
+                 </div>
+            </div>
+
+            <div class="bg-secondary-800 rounded-xl shadow-xl overflow-hidden max-w-5xl mx-auto border border-secondary-700">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-br from-primary-700 to-primary-900 text-white p-8 flex items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center"><i class="fas fa-list-check mr-3"></i>قائمة الأوامر</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start space-x-3 space-x-reverse">
+                                    <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!أذكار</code>
+                                    <span class="text-neutral-100">عرض ذكر عشوائي وتحديد قناة التذكير (أول مرة).</span>
+                                </li>
+                                 <li class="flex items-start space-x-3 space-x-reverse">
+                                    <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!أذكار صباح</code>
+                                    <span class="text-neutral-100">عرض أذكار الصباح الكاملة.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 space-x-reverse">
+                                    <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!أذكار مساء</code>
+                                    <span class="text-neutral-100">عرض أذكار المساء الكاملة.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 space-x-reverse">
+                                     <code class="bg-secondary-900/50 text-primary-200 px-3 py-1 rounded text-md font-mono">!مساعدة</code>
+                                    <span class="text-neutral-100">عرض رسالة المساعدة هذه وقائمة الأوامر.</span>
+                                </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-6 bg-secondary-900 flex items-center justify-center">
+                         <img src="https://i.imgur.com/JQlEx8P.png" alt="مثال على أوامر البوت" class="rounded-lg shadow-md border border-secondary-700 max-w-full h-auto">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="py-12 md:py-20 bg-green-500 text-white text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to add Athkar to your server?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Add the Athkar Bot to your Discord server today and enrich your community with daily Islamic remembrances.</p>
+    <section id="testimonials" class="py-16 md:py-24 bg-secondary-800">
+         <div class="container mx-auto px-6">
+             <div class="text-center mb-12 md:mb-16">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">ماذا قال المستخدمون؟</h2>
+                 <div class="w-24 h-1 bg-accent mx-auto"></div>
+             </div>
+
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="testimonial-card p-6">
+                     <div class="flex items-center mb-4">
+                         <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-xl text-white font-bold mr-4 ml-0">ع</div>
+                         <div>
+                             <h4 class="font-bold text-lg text-white">عمر م.</h4>
+                              <div class="flex text-yellow-400 text-sm">
+                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                             </div>
+                         </div>
+                     </div>
+                     <p class="text-neutral-300 italic">"بوت رائع ومفيد جداً! التذكير اليومي يساعدني على عدم نسيان الأذكار وسط مشاغل اليوم. جزى الله المطور خيراً."</p>
+                 </div>
+                
+                 <div class="testimonial-card p-6">
+                     <div class="flex items-center mb-4">
+                         <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-xl text-white font-bold mr-4 ml-0">ف</div>
+                         <div>
+                             <h4 class="font-bold text-lg text-white">فاطمة الـ..</h4>
+                              <div class="flex text-yellow-400 text-sm">
+                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                             </div>
+                         </div>
+                     </div>
+                     <p class="text-neutral-300 italic">"أفضل بوت أذكار استخدمته. بسيط، مباشر، وبدون إعلانات مزعجة. أنصح به لكل سيرفر عربي ومسلم."</p>
+                 </div>
+
+                 <div class="testimonial-card p-6">
+                     <div class="flex items-center mb-4">
+                         <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-xl text-white font-bold mr-4 ml-0">م</div>
+                         <div>
+                             <h4 class="font-bold text-lg text-white">مجتمع النور</h4>
+                              <div class="flex text-yellow-400 text-sm">
+                                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                             </div>
+                         </div>
+                     </div>
+                     <p class="text-neutral-300 italic">"نستخدم البوت في سيرفرنا التعليمي لتشجيع الأعضاء على الذكر. سهل الإضافة والاستخدام، وفكرته مباركة."</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+    <section class="py-16 md:py-24 bg-secondary-900 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">انضم لآلاف السيرفرات التي تذكر الله</h2>
+            <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">لا تجعل الشيطان ينسيك ذكر ربك. أضف البوت الآن بضغطة زر!</p>
+
             <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
-               class="bg-white text-green-600 hover:bg-green-100 font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 inline-block">
-               Add to Discord
+               class="bg-accent hover:bg-amber-600 text-secondary-900 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-2 space-x-reverse text-xl mb-12">
+               <i class="fab fa-discord text-2xl"></i>
+               <span>أضف بوت الأذكار</span>
             </a>
+
+            <div class="mt-10 bg-secondary-800/50 border border-secondary-700 rounded-xl p-6 max-w-4xl mx-auto text-center">
+                 <p class="hadith-text mb-2">قال رسول الله ﷺ: "مَثَلُ الَّذِي يَذْكُرُ رَبَّهُ وَالَّذِي لَا يَذْكُرُ رَبَّهُ مَثَلُ الْحَيِّ وَالْمَيِّتِ"</p>
+                 <p class="text-primary-300 font-medium">صحيح البخاري</p>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-moon text-2xl"></i>
-                        <span class="font-bold text-xl">Athkar Bot</span>
-                    </div>
-                    <p class="text-gray-400 mt-2">© 2025 Athkar Bot. All rights reserved.</p>
+    <footer class="bg-secondary-900 border-t border-secondary-700 pt-12 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-right">
+                <div>
+                     <h3 class="text-xl font-bold mb-4 flex items-center justify-center md:justify-start text-white">
+                         <img src="placeholder_logo_white.png" alt="Logo" class="h-6 w-auto ml-2"> بوت الأذكار
+                     </h3>
+                    <p class="text-neutral-400">تذكير يومي بأذكار الصباح والمساء والمزيد على ديسكورد. عمل يهدف لوجه الله.</p>
                 </div>
-                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-                    <a href="about.html" class="hover:text-green-400">About</a>
-                    <a href="terms.html" class="hover:text-green-400">Terms of Service</a>
-                    <a href="privacy.html" class="hover:text-green-400">Privacy Policy</a>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-white">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-neutral-400 hover:text-primary transition">الرئيسية</a></li>
+                        <li><a href="#features" class="text-neutral-400 hover:text-primary transition">المميزات</a></li>
+                        <li><a href="#commands" class="text-neutral-400 hover:text-primary transition">الأوامر</a></li>
+                         <li><a href="#creator" class="text-neutral-400 hover:text-primary transition">عن المطور</a></li>
+                        </ul>
                 </div>
+
+                <div>
+                     <h3 class="text-xl font-bold mb-4 text-white">معلومات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-neutral-400 hover:text-primary transition">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="text-neutral-400 hover:text-primary transition">شروط الاستخدام</a></li>
+                         <li><a href="mailto:your.email@example.com" class="text-neutral-400 hover:text-primary transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                 <div>
+                    <h3 class="text-xl font-bold mb-4 text-white">تابع البوت</h3>
+                     <div class="flex space-x-4 space-x-reverse justify-center md:justify-start mb-4">
+                        <a href="#" class="w-10 h-10 bg-secondary-700 hover:bg-primary rounded-full flex items-center justify-center transition text-white" title="Support Server (Example)">
+                             <i class="fab fa-discord"></i>
+                         </a>
+                         <a href="#" class="w-10 h-10 bg-secondary-700 hover:bg-accent rounded-full flex items-center justify-center transition text-white" title="GitHub Repository (Example)">
+                            <i class="fab fa-github"></i>
+                        </a>
+                     </div>
+                    <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
+                       class="bg-primary hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300 inline-flex items-center text-sm">
+                       <i class="fab fa-discord mr-2 ml-0"></i> أضف البوت
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary-700 pt-6 mt-8 text-center">
+                 <p class="text-neutral-400 text-sm">&copy; <span id="currentYear"></span> بوت الأذكار. تطوير عبد الحكيم بعلا.</p>
+                 <p class="text-neutral-500 text-xs mt-1">نسأل الله القبول والإخلاص.</p>
             </div>
         </div>
     </footer>
@@ -153,6 +515,37 @@
         document.querySelector('.mobile-menu-button').addEventListener('click', function() {
             document.querySelector('.mobile-menu').classList.toggle('hidden');
         });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                     // Add slight offset for fixed navbar height if needed
+                     const offset = 80; // Adjust based on your navbar height
+                     const bodyRect = document.body.getBoundingClientRect().top;
+                     const elementRect = targetElement.getBoundingClientRect().top;
+                     const elementPosition = elementRect - bodyRect;
+                     const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open after clicking a link
+                     const mobileMenu = document.querySelector('.mobile-menu');
+                     if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                     }
+                }
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
     </script>
 </body>
 </html>

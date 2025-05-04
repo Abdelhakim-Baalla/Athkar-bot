@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Athkar Bot - Islamic Remembrances Discord Bot</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-moon text-2xl"></i>
+                    <span class="font-bold text-xl">Athkar Bot</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="hover:text-green-200 font-medium">Home</a>
+                    <a href="about.html" class="hover:text-green-200 font-medium">About</a>
+                    <a href="terms.html" class="hover:text-green-200 font-medium">Terms of Service</a>
+                    <a href="privacy.html" class="hover:text-green-200 font-medium">Privacy Policy</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-green-700">Home</a>
+            <a href="about.html" class="block py-2 px-4 text-sm hover:bg-green-700">About</a>
+            <a href="terms.html" class="block py-2 px-4 text-sm hover:bg-green-700">Terms of Service</a>
+            <a href="privacy.html" class="block py-2 px-4 text-sm hover:bg-green-700">Privacy Policy</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-green-500 text-white">
+        <div class="container mx-auto px-4 py-12 md:py-16">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">About Athkar Bot</h1>
+            <p class="text-lg md:text-xl max-w-3xl">Learn more about Athkar Bot, its purpose, features, and how it can benefit your Discord community.</p>
+        </div>
+    </header>
+
+    <!-- About Content -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">What is Athkar Bot?</h2>
+                <p class="mb-6 text-gray-700 leading-relaxed">
+                    Athkar Bot is a Discord bot designed to provide Islamic remembrances (Athkar) to Discord communities. It helps Muslims maintain their spiritual practice by delivering daily morning and evening Athkar automatically, as well as providing on-demand reminders through simple commands.
+                </p>
+                <p class="mb-10 text-gray-700 leading-relaxed">
+                    The word "Athkar" (أذكار) is the plural form of "Thikr" (ذكر) which means "remembrance" in Arabic. In Islamic tradition, these are specific phrases and prayers that Muslims recite to remember and glorify Allah (God).
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">How Does It Work?</h2>
+                <div class="mb-10">
+                    <h3 class="text-xl font-semibold mb-3">Scheduled Athkar</h3>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                        Athkar Bot automatically sends morning Athkar at 6:00 AM and evening Athkar at 6:00 PM to the designated channel in your server. These times are set to help Muslims maintain the tradition of morning and evening remembrances.
+                    </p>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Command-Based Athkar</h3>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                        Users can request Athkar at any time using the following commands:
+                    </p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                        <p class="font-mono mb-2"><strong>!athkar</strong> - Get a random Athkar</p>
+                        <p class="font-mono mb-2"><strong>!athkar morning</strong> - Get a morning Athkar</p>
+                        <p class="font-mono"><strong>!athkar evening</strong> - Get an evening Athkar</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">Benefits for Your Community</h2>
+                <ul class="list-disc pl-6 mb-10 space-y-2 text-gray-700 leading-relaxed">
+                    <li>Regular spiritual reminders without manual effort</li>
+                    <li>Encourages consistent Islamic practice</li>
+                    <li>Creates a positive atmosphere in your Discord server</li>
+                    <li>Helps members remember Allah throughout their day</li>
+                    <li>Educational content for those learning about Islamic practices</li>
+                    <li>Simple to set up and use with no complicated configuration</li>
+                </ul>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">Technical Details</h2>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Athkar Bot is built using Python with the Discord.py library. It runs on reliable cloud infrastructure to ensure consistent uptime and performance. The bot requires minimal permissions to function, only needing the ability to send messages in your server's channels.
+                </p>
+                <p class="mb-10 text-gray-700 leading-relaxed">
+                    The bot collects only necessary data to function, such as server and channel IDs. For more information about data collection and usage, please refer to our <a href="privacy.html" class="text-green-600 hover:text-green-800 underline">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 md:py-16 bg-green-500 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Ready to add Athkar to your server?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Add the Athkar Bot to your Discord server today and enrich your community with daily Islamic remembrances.</p>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
+               class="bg-white text-green-600 hover:bg-green-100 font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 inline-block">
+               Add to Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-moon text-2xl"></i>
+                        <span class="font-bold text-xl">Athkar Bot</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">© 2025 Athkar Bot. All rights reserved.</p>
+                </div>
+                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+                    <a href="about.html" class="hover:text-green-400">About</a>
+                    <a href="terms.html" class="hover:text-green-400">Terms of Service</a>
+                    <a href="privacy.html" class="hover:text-green-400">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
