@@ -1,130 +1,547 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Athkar Bot - Islamic Remembrances Discord Bot</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>عن بوت الأذكار - تذكير إسلامي على ديسكورد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/atkhkar-bot-logo.jpg" type="image/png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 
+                            DEFAULT: '#0d9488',
+                            '50': '#f0fdfa',
+                            '100': '#ccfbf1',
+                            '200': '#99f6e4',
+                            '300': '#5eead4',
+                            '400': '#2dd4bf',
+                            '500': '#14b8a6',
+                            '600': '#0d9488',
+                            '700': '#0f766e',
+                            '800': '#115e59',
+                            '900': '#134e4a'
+                        },
+                        secondary: {
+                            DEFAULT: '#8b5cf6',
+                            '50': '#f5f3ff',
+                            '100': '#ede9fe',
+                            '200': '#ddd6fe',
+                            '300': '#c4b5fd',
+                            '400': '#a78bfa',
+                            '500': '#8b5cf6',
+                            '600': '#7c3aed',
+                            '700': '#6d28d9',
+                            '800': '#5b21b6',
+                            '900': '#4c1d95'
+                        },
+                        accent: {
+                            DEFAULT: '#f59e0b',
+                            '50': '#fffbeb',
+                            '100': '#fef3c7',
+                            '200': '#fde68a',
+                            '300': '#fcd34d',
+                            '400': '#fbbf24',
+                            '500': '#f59e0b',
+                            '600': '#d97706',
+                            '700': '#b45309',
+                            '800': '#92400e',
+                            '900': '#78350f'
+                        },
+                        neutral: {
+                           '50': '#f8fafc',
+                           '100': '#f1f5f9',
+                           '200': '#e2e8f0',
+                           '900': '#0f172a'
+                        },
+                        'dark-text': '#1e293b'
+                    },
+                    fontFamily: {
+                        'sans': ['Tajawal', 'sans-serif'],
+                        'quran': ['Amiri', 'serif'],
+                        'decorative': ['Aref Ruqaa', 'serif']
+                    },
+                    backgroundImage: {
+                       'islamic-pattern': "url('https://images.pexels.com/photos/2104856/pexels-photo-2104856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+                       'hero-gradient': 'linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(139, 92, 246, 0.8) 100%)',
+                       'section-gradient': 'linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%)',
+                       'footer-pattern': "url('https://images.pexels.com/photos/28542625/pexels-photo-28542625/free-photo-of-interieur-complexe-du-dome-d-une-grande-mosquee.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load')"
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                        'mosque': '70% 70% 5% 5% / 60% 60% 10% 10%'
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 15px -3px rgba(0, 0, 0, 0.05), 0 2px 8px -4px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -6px rgba(0, 0, 0, 0.1)',
+                        'lifted': '0 15px 35px -10px rgba(13, 148, 136, 0.3), 0 8px 15px -8px rgba(13, 148, 136, 0.2)',
+                        'glow': '0 0 15px 2px rgba(139, 92, 246, 0.3)'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+        
+        .quran-text {
+            font-family: 'Amiri', serif;
+            font-size: 2.1em;
+            line-height: 2.2;
+            color: #0f766e;
+            text-shadow: 1px 1px 2px rgba(199, 210, 254, 0.2);
+            direction: rtl;
+        }
+        
+        .hadith-text {
+           font-family: 'Amiri', serif;
+           font-style: italic;
+           font-size: 1.2em;
+           line-height: 1.8;
+           color: #4b5563;
+           direction: rtl;
+        }
+
+        .decorative-heading {
+            font-family: 'Aref Ruqaa', serif;
+            letter-spacing: -0.5px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.05), 0 2px 8px -4px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease-out;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px -10px rgba(13, 148, 136, 0.3), 0 8px 15px -8px rgba(13, 148, 136, 0.2);
+            border-color: #5eead4;
+        }
+        
+        .nav-sticky {
+             background-color: rgba(255, 255, 255, 0.9);
+             backdrop-filter: blur(10px);
+             border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .wave-divider {
+            width: 100%;
+            height: 80px;
+            background-image: url('https://images.pexels.com/photos/28542625/pexels-photo-28542625/free-photo-of-interieur-complexe-du-dome-d-une-grande-mosquee.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            margin-top: -1px;
+            margin-bottom: -1px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #0d9488, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .cta-button-primary {
+             background: linear-gradient(45deg, #0d9488, #14b8a6);
+             color: white;
+             transition: all 0.3s ease;
+             box-shadow: 0 4px 15px -3px rgba(13, 148, 136, 0.3);
+        }
+        
+        .cta-button-primary:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 8px 20px -4px rgba(13, 148, 136, 0.4);
+        }
+         
+        .cta-button-secondary {
+             background-color: white;
+             color: #0d9488;
+             border: 1px solid #5eead4;
+             transition: all 0.3s ease;
+        }
+        
+        .cta-button-secondary:hover {
+              background-color: #f0fdfa;
+              border-color: #0d9488;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .creator-image {
+            border: 4px solid #5eead4;
+            padding: 4px;
+        }
+
+        .islamic-ornament {
+            position: relative;
+        }
+        
+        .islamic-ornament::before, .islamic-ornament::after {
+            content: "❁";
+            font-size: 1.5rem;
+            color: #0d9488;
+            opacity: 0.7;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .islamic-ornament::before {
+            right: -2rem;
+        }
+        
+        .islamic-ornament::after {
+            left: -2rem;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px 2px rgba(139, 92, 246, 0.3);
+        }
+
+        .mosque-shape {
+            border-radius: 70% 70% 5% 5% / 60% 60% 10% 10%;
+        }
+
+        .pattern-bg {
+            background-image: url('https://images.pexels.com/photos/17125040/pexels-photo-17125040/free-photo-of-art-motif-colore-carreaux.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-repeat: repeat;
+            background-size: 200px;
+            background-blend-mode: overlay;
+        }
+
+        .testimonial-card {
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 5rem;
+            font-family: 'Amiri', serif;
+            color: rgba(13, 148, 136, 0.1);
+            line-height: 1;
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .feature-icon-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-icon-container::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, rgba(94, 234, 212, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 9999px;
+            z-index: -1;
+            transform: scale(0);
+            transition: transform 0.3s ease-out;
+        }
+
+        .card:hover .feature-icon-container::after {
+            transform: scale(1.5);
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .author-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .author-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-neutral-50 text-dark-text">
+
     <!-- Navigation -->
-    <nav class="bg-green-600 text-white shadow-lg">
+    <nav class="nav-sticky shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-moon text-2xl"></i>
-                    <span class="font-bold text-xl">Athkar Bot</span>
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <img src="images/atkhkar-bot-logo.png" alt="بوت الأذكار Logo" class="h-10 w-auto rounded-full"> 
+                    <span class="font-bold text-xl text-primary-700 decorative-heading">بوت الأذكار</span>
                 </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="hover:text-green-200 font-medium">Home</a>
-                    <a href="about.html" class="hover:text-green-200 font-medium">About</a>
-                    <a href="terms.html" class="hover:text-green-200 font-medium">Terms of Service</a>
-                    <a href="privacy.html" class="hover:text-green-200 font-medium">Privacy Policy</a>
+                <div class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">الرئيسية</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">عن البوت</a>
+                    <a href="terms.html" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">شروط الاستخدام</a>
+                    <a href="privacy.html" class="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-lg transition duration-300">سياسة الخصوصية</a>
                 </div>
                 <div class="md:hidden">
-                    <button class="mobile-menu-button">
+                    <button class="mobile-menu-button p-2 focus:outline-none text-gray-700">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden">
-            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-green-700">Home</a>
-            <a href="about.html" class="block py-2 px-4 text-sm hover:bg-green-700">About</a>
-            <a href="terms.html" class="block py-2 px-4 text-sm hover:bg-green-700">Terms of Service</a>
-            <a href="privacy.html" class="block py-2 px-4 text-sm hover:bg-green-700">Privacy Policy</a>
+        <div class="mobile-menu hidden md:hidden bg-white border-t border-neutral-100">
+            <a href="index.html" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">الرئيسية</a>
+            <a href="about.html" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">عن البوت</a>
+            <a href="terms.html" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">شروط الاستخدام</a>
+            <a href="privacy.html" class="block py-3 px-4 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition">سياسة الخصوصية</a>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="bg-green-500 text-white">
-        <div class="container mx-auto px-4 py-12 md:py-16">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">About Athkar Bot</h1>
-            <p class="text-lg md:text-xl max-w-3xl">Learn more about Athkar Bot, its purpose, features, and how it can benefit your Discord community.</p>
+    <header class="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pattern-bg opacity-[0.03] z-0"></div>
+        <div class="absolute top-1/4 -left-10 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -right-10 w-64 h-64 bg-secondary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-slow"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="inline-block mb-6 relative">
+                <span class="absolute inset-0 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-full blur-xl opacity-50 animate-pulse-slow"></span>
+                <img src="images/atkhkar-bot-logo.png" alt="بوت الأذكار Logo" class="h-24 w-auto relative floating">
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-5 text-dark-text decorative-heading">
+                تعرف على <span class="gradient-text">بوت الأذكار</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-gray-600">
+                رفيقك اليومي في رحلة الذكر والتقرب إلى الله على منصة ديسكورد
+            </p>
+
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto text-center border border-neutral-200 shadow-subtle mosque-shape">
+                <div class="mb-2 text-accent-500 text-2xl">
+                    <i class="fas fa-star-and-crescent"></i>
+                </div>
+                <p class="quran-text mb-3 text-primary-700">"فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ"</p>
+                <p class="text-gray-500 text-md">البقرة: 152</p>
+            </div>
         </div>
     </header>
-
+    
     <!-- About Content -->
-    <section class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold mb-6">What is Athkar Bot?</h2>
-                <p class="mb-6 text-gray-700 leading-relaxed">
-                    Athkar Bot is a Discord bot designed to provide Islamic remembrances (Athkar) to Discord communities. It helps Muslims maintain their spiritual practice by delivering daily morning and evening Athkar automatically, as well as providing on-demand reminders through simple commands.
-                </p>
-                <p class="mb-10 text-gray-700 leading-relaxed">
-                    The word "Athkar" (أذكار) is the plural form of "Thikr" (ذكر) which means "remembrance" in Arabic. In Islamic tradition, these are specific phrases and prayers that Muslims recite to remember and glorify Allah (God).
-                </p>
-
-                <h2 class="text-2xl md:text-3xl font-bold mb-6">How Does It Work?</h2>
-                <div class="mb-10">
-                    <h3 class="text-xl font-semibold mb-3">Scheduled Athkar</h3>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                        Athkar Bot automatically sends morning Athkar at 6:00 AM and evening Athkar at 6:00 PM to the designated channel in your server. These times are set to help Muslims maintain the tradition of morning and evening remembrances.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold mb-3">Command-Based Athkar</h3>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                        Users can request Athkar at any time using the following commands:
-                    </p>
-                    <div class="bg-gray-100 p-4 rounded-lg mb-6">
-                        <p class="font-mono mb-2"><strong>!athkar</strong> - Get a random Athkar</p>
-                        <p class="font-mono mb-2"><strong>!athkar morning</strong> - Get a morning Athkar</p>
-                        <p class="font-mono"><strong>!athkar evening</strong> - Get an evening Athkar</p>
-                    </div>
+    <section class="py-12 md:py-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text decorative-heading islamic-ornament inline-block">ما هو بوت الأذكار؟</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-3"></div>
                 </div>
 
-                <h2 class="text-2xl md:text-3xl font-bold mb-6">Benefits for Your Community</h2>
-                <ul class="list-disc pl-6 mb-10 space-y-2 text-gray-700 leading-relaxed">
-                    <li>Regular spiritual reminders without manual effort</li>
-                    <li>Encourages consistent Islamic practice</li>
-                    <li>Creates a positive atmosphere in your Discord server</li>
-                    <li>Helps members remember Allah throughout their day</li>
-                    <li>Educational content for those learning about Islamic practices</li>
-                    <li>Simple to set up and use with no complicated configuration</li>
-                </ul>
+                <div class="card p-8 md:p-12 mb-16">
+                    <p class="mb-6 text-gray-700 leading-relaxed text-lg">
+                        بوت الأذكار هو تطبيق ذكي مصمم لمنصة ديسكورد يهدف إلى مساعدة المسلمين على المداومة على الأذكار اليومية. يعمل البوت على تذكير المستخدمين بأذكار الصباح والمساء تلقائياً، بالإضافة إلى توفير الأذكار والأدعية عند الطلب عبر أوامر بسيطة.
+                    </p>
+                    <p class="mb-10 text-gray-700 leading-relaxed text-lg">
+                        كلمة "أذكار" هي جمع "ذكر" والتي تعني تلاوة الأدعية والآيات القرآنية والأحاديث النبوية التي وردت عن النبي محمد صلى الله عليه وسلم لذكر الله تعالى والثناء عليه.
+                    </p>
+                    
+                    <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mb-10">
+                        <h3 class="text-xl font-semibold mb-4 text-primary-700">كيف يعمل البوت؟</h3>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-700">الأذكار المجدولة</h4>
+                            <p class="mb-4 text-gray-700 leading-relaxed">
+                                يرسل البوت أذكار الصباح تلقائياً عند الساعة 6 صباحاً وأذكار المساء عند الساعة 6 مساءً في القناة المخصصة في سيرفرك. تم اختيار هذه الأوقات للمساعدة في الحفاظ على سنة الأذكار في أوقاتها الموصى بها.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-medium mb-3 text-secondary-700">الأذكار عند الطلب</h4>
+                            <p class="mb-4 text-gray-700 leading-relaxed">
+                                يمكن للأعضاء طلب الأذكار في أي وقت باستخدام الأوامر التالية:
+                            </p>
+                            <div class="bg-gray-100 p-5 rounded-lg mb-6 text-right">
+                                <p class="font-mono mb-3 text-lg"><span class="text-primary-600 font-bold">!أذكار</span> - عرض ذكر عشوائي</p>
+                                <p class="font-mono mb-3 text-lg"><span class="text-primary-600 font-bold">!أذكار صباح</span> - عرض أذكار الصباح</p>
+                                <p class="font-mono text-lg"><span class="text-primary-600 font-bold">!أذكار مساء</span> - عرض أذكار المساء</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <h2 class="text-2xl md:text-3xl font-bold mb-6">Technical Details</h2>
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                    Athkar Bot is built using Python with the Discord.py library. It runs on reliable cloud infrastructure to ensure consistent uptime and performance. The bot requires minimal permissions to function, only needing the ability to send messages in your server's channels.
-                </p>
-                <p class="mb-10 text-gray-700 leading-relaxed">
-                    The bot collects only necessary data to function, such as server and channel IDs. For more information about data collection and usage, please refer to our <a href="privacy.html" class="text-green-600 hover:text-green-800 underline">Privacy Policy</a>.
-                </p>
+                    <div class="mb-10">
+                        <h3 class="text-xl font-semibold mb-4 text-primary-700">فوائد البوت لمجتمعك</h3>
+                        <ul class="list-disc pr-6 mb-10 space-y-3 text-gray-700 leading-relaxed text-lg">
+                            <li>تذكير يومي روحاني دون جهد يدوي</li>
+                            <li>تشجيع المداومة على الأذكار والأدعية</li>
+                            <li>خلق أجواء إيمانية إيجابية في سيرفرك</li>
+                            <li>مساعدة الأعضاء على ذكر الله في حياتهم الرقمية</li>
+                            <li>محتوى تعليمي لمن يريد التعرف على الأذكار الإسلامية</li>
+                            <li>سهل الإعداد والاستخدام بدون تعقيدات</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-primary-700">تفاصيل تقنية</h3>
+                        <p class="mb-4 text-gray-700 leading-relaxed text-lg">
+                            تم بناء بوت الأذكار باستخدام لغة البرمجة Python مع مكتبة Discord.py. يعمل البوت على بنية تحتية سحابية موثوقة لضمان الأداء المستقر والتوفر الدائم. يحتاج البوت إلى الحد الأدنى من الصلاحيات للعمل، فقط صلاحية إرسال الرسائل في القنوات المطلوبة.
+                        </p>
+                        <p class="mb-10 text-gray-700 leading-relaxed text-lg">
+                            يجمع البوت فقط البيانات الضرورية للعمل مثل معرفات السيرفرات والقنوات. لمزيد من المعلومات حول جمع البيانات واستخدامها، يرجى الرجوع إلى <a href="privacy.html" class="text-primary-600 hover:text-primary-800 underline">سياسة الخصوصية</a>.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="hadith-text max-w-3xl mx-auto p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-subtle border border-neutral-200">
+                        <i class="fas fa-quote-right text-primary-300 text-xl mb-2"></i>
+                        <p class="mb-2 text-gray-700">"مَثَلُ الَّذِي يَذْكُرُ رَبَّهُ وَالَّذِي لاَ يَذْكُرُ رَبَّهُ مَثَلُ الْحَيِّ وَالْمَيِّتِ"</p>
+                        <p class="text-gray-500 text-sm">رواه البخاري</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="py-12 md:py-16 bg-green-500 text-white text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-6">Ready to add Athkar to your server?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Add the Athkar Bot to your Discord server today and enrich your community with daily Islamic remembrances.</p>
-            <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=2048&scope=bot" 
-               class="bg-white text-green-600 hover:bg-green-100 font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 inline-block">
-               Add to Discord
-            </a>
+    <!-- CTA Section -->
+    <section class="py-24 md:py-32 bg-gradient-to-br from-primary-600 to-secondary-600 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 pattern-bg opacity-[0.05] z-0"></div>
+        <div class="absolute top-0 left-0 w-full h-12 bg-gradient-to-r from-primary-400 to-secondary-400 opacity-30"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 decorative-heading">جاهز لإضافة البوت إلى سيرفرك؟</h2>
+                <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">انضم للمئات من السيرفرات التي تستفيد من بوت الأذكار يومياً</p>
+
+                <a href="https://discord.com/oauth2/authorize?client_id=1368232333349486724" 
+                   class="bg-white hover:bg-neutral-50 text-primary-600 font-bold py-5 px-12 rounded-full shadow-xl transition duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-3 space-x-reverse text-xl mb-16">
+                    <i class="fab fa-discord text-2xl"></i>
+                    <span>أضف البوت الآن</span>
+                </a>
+
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto text-center border border-white/30 mosque-shape">
+                    <div class="mb-3 text-white text-2xl">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <p class="hadith-text mb-3 text-white">"ألا أنبئكم بخير أعمالكم، وأزكاها عند مليككم، وأرفعها في درجاتكم، وخير لكم من إنفاق الذهب والورق، وخير لكم من أن تلقوا عدوكم فتضربوا أعناقهم ويضربوا أعناقكم؟ قالوا: بلى. قال: ذكر الله تعالى"</p>
+                    <p class="text-primary-200 font-medium">سنن الترمذي</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-moon text-2xl"></i>
-                        <span class="font-bold text-xl">Athkar Bot</span>
+    <footer class="bg-white pt-16 pb-8 border-t border-neutral-100 relative">
+        <div class="absolute inset-0 pattern-bg opacity-[0.02] z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="text-center md:text-right">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="images/atkhkar-bot-logo.jpg" alt="Logo" class="h-10 w-auto ml-3">
+                        <h3 class="text-xl font-bold text-primary-700 decorative-heading">بوت الأذكار</h3>
                     </div>
-                    <p class="text-gray-400 mt-2">© 2025 Athkar Bot. All rights reserved.</p>
+                    <p class="text-gray-600">تذكير يومي منعش بذكر الله على منصة ديسكورد.</p>
+                    <p class="text-primary-500 mt-3 text-sm">تطوير: عبد الحكيم باعلا (Dino Crafting)</p>
                 </div>
-                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-                    <a href="about.html" class="hover:text-green-400">About</a>
-                    <a href="terms.html" class="hover:text-green-400">Terms of Service</a>
-                    <a href="privacy.html" class="hover:text-green-400">Privacy Policy</a>
+                
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 decorative-heading">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-600 hover:text-primary-600 transition">الرئيسية</a></li>
+                        <li><a href="about.html" class="text-gray-600 hover:text-primary-600 transition">عن البوت</a></li>
+                        <li><a href="terms.html" class="text-gray-600 hover:text-primary-600 transition">شروط الاستخدام</a></li>
+                        <li><a href="privacy.html" class="text-gray-600 hover:text-primary-600 transition">سياسة الخصوصية</a></li>
+                    </ul>
                 </div>
+                
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 decorative-heading">معلومات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="privacy.html" class="text-gray-600 hover:text-primary-600 transition">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html" class="text-gray-600 hover:text-primary-600 transition">شروط الاستخدام</a></li>
+                        <li><a href="mailto:abdelhakimbaalla50@gmail.com" class="text-gray-600 hover:text-primary-600 transition">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 decorative-heading">تابعنا وأضف البوت</h3>
+                    <div class="flex space-x-3 space-x-reverse justify-center md:justify-start mb-6">
+                        <a href="https://discord.gg/uG7MxUvw4w" target="_blank" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-primary-100 text-primary-600 rounded-full flex items-center justify-center transition" title="Support Server">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://github.com/Abdelhakim-Baalla" target="_blank" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-secondary-100 text-secondary-600 rounded-full flex items-center justify-center transition" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Dinocrafting" target="_blank" class="social-icon w-10 h-10 bg-neutral-100 hover:bg-accent-100 text-accent-600 rounded-full flex items-center justify-center transition" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1368232333349486724" 
+                       class="cta-button-primary font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 inline-flex items-center text-sm">
+                       <i class="fas fa-plus mr-2 ml-0"></i> أضف البوت
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-neutral-100 pt-8 mt-8 text-center">
+                <p class="text-gray-500 text-sm">© <span id="currentYear"></span> بوت الأذكار. جميع الحقوق محفوظة.</p>
+                <p class="text-gray-400 text-xs mt-2">{ سبحان الله وبحمده، سبحان الله العظيم }</p>
             </div>
         </div>
     </footer>
@@ -134,6 +551,35 @@
         document.querySelector('.mobile-menu-button').addEventListener('click', function() {
             document.querySelector('.mobile-menu').classList.toggle('hidden');
         });
+
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Add scroll reveal animation
+        const revealElements = document.querySelectorAll('.card, .quran-text, .hadith-text');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('animate-fade-in');
+                    element.style.opacity = '1';
+                }
+            });
+        };
+        
+        // Set initial opacity
+        revealElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            element.style.transform = 'translateY(20px)';
+        });
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial check on page load
+        revealOnScroll();
     </script>
 </body>
 </html>
