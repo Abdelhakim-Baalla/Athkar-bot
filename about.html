@@ -546,42 +546,7 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
-            document.querySelector('.mobile-menu').classList.toggle('hidden');
-        });
-
-        // Set current year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Add scroll reveal animation
-        const revealElements = document.querySelectorAll('.card, .quran-text, .hadith-text');
-        
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            revealElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('animate-fade-in');
-                    element.style.opacity = '1';
-                }
-            });
-        };
-        
-        // Set initial opacity
-        revealElements.forEach(element => {
-            element.style.opacity = '0';
-            element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-            element.style.transform = 'translateY(20px)';
-        });
-        
-        // Add scroll event listener
-        window.addEventListener('scroll', revealOnScroll);
-        // Initial check on page load
-        revealOnScroll();
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8935159676532700"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4641202938842792"
      crossorigin="anonymous"></script>
 </body>
 </html>
